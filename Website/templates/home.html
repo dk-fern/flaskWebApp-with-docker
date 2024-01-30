@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<head>
+    <!-- Your existing head content -->
+
+</head>
+<body>
+    <div class="container mt-4 px-0">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Welcome to My Website!</h1>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12 ml-md-4">
+                <p>
+                    Hello, I'm Dylan, a Cybersecurity professional working, experimenting with, and deploying technology with the 
+                    hope of growing and displaying my knowledge and technical ability. This website is a simple web application 
+                    written using the Flask web framework for Python, containerized using Docker, and deployed using Terraform to the cloud. 
+                    The goal of creating this is to not just demonstrate technical ability, but to create a guide and make all resources available for others to do the same.
+                </p>
+                <h5>This website itself is a project to practice and demonstrate:</h5>
+                <!-- Insert separate section in a slight shade of color to have a list--> 
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="content-padding custom-bg-color text-center p-2 rounded-3">
+                            <img src="{{url_for('static', filename='flask_logo.png')}}" alt="Flask Logo" style="width: 200px; height: 80px; margin-top: 10px; margin-bottom: 10px;"> 
+                            <h5 class="mb-2">The Flask framework</h5>
+                            <p>Flask is a lightweight Python web framework that simplifies 
+                                the development of web applications by providing essential tools and a flexible structure. 
+                                Scripting and automation in Python is a part of my day-to-day work and life and
+                                I wanted to take on the challenge of using something familiar in a new way.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="content-padding custom-bg-color text-center p-2 rounded-3">
+                            <img src="{{url_for('static', filename='Docker_logo.png')}}" alt="Docker Logo" style="width:220px; height: 80px; margin-top: 10px; margin-bottom: 10px;">
+                            <h5 class="mb-2">Containerization with Docker</h5>
+                            <p>Containerization streamlines software development and deployment by encapsulating 
+                                applications and their dependencies, ensuring consistency across various environments.
+                                Docker is the most popular tool to achieve this. This web application was containerized using Docker. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="content-padding custom-bg-color text-center p-2 rounded-3">
+                            <img src="{{url_for('static', filename='Terraform_Logo.png')}}" alt="Terraform Logo" style="width: 260px; height: 80px; margin-top: 10px; margin-bottom: 10px;">
+                            <h5 class="mb-2">Infrastructure as code with Terraform</h5>
+                            <p>Infrastructure as Code (IaC) enables the automated provisioning and management of IT infrastructure 
+                                through code, fostering scalability, consistency, and version control in deployment processes.
+                                Terraform was used in this instance to deploy the Docker image of this web application to the cloud.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="content-padding custom-bg-color text-center p-4 rounded overflow-hidden">
+                    <h3 class="mb-2">Visualization of how this web app was deployed</h3>
+                    <!-- Replace 'path/to/your/image.jpg' with the actual path to your image file -->
+                    <img src="{{url_for('static', filename='WebAppDiagram.png')}}" alt="Description of the image" class="img-fluid" style="margin-top: 10px; margin-bottom: 10px;">
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <p class="text-center">
+                        Navigate the website to view my resume, other projects I've worked on, and more...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

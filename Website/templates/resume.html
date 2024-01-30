@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Resume{% endblock %}
+{% block content %}
+<body>
+    <div class="container mt-4 px-0">
+        <div class="col-md-12 text-center">
+            <h1>Resume</h1>
+        </div>
+
+        <!-- About Me Section -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="content-padding custom-bg-color p-2 rounded-3">
+                    <h2>About Me</h2>
+                        <p>
+                            I am a quick learning problem solver obsessed with all things cybersecurity, technology, and 
+                            growth who aims to bring greater technical expertise and profeciency to every space I am in. 
+                            I have hands on experience in both Windows and Linux, Cloud and on-prem environments. 
+                            My career growth is accelerated by my ability to automate tasks, giving me flexibility to take 
+                            on new challenges and train others in what I know.
+                        </p>
+                </div>
+            </div>
+        <!-- Skills Section -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h2>Skills</h2>
+                    <div>
+                        <h5 style="margin-top: 1em;">Operating Systems, Programming Languages, and Technologies</h5>
+                            <p>Windows, Linux, Python, Azure, Terraform, Splunk, Microsoft Defender, Active Directory</p>
+                        <h5 style="margin-top: 1em;">Other Technical Skills</h5>
+                            <p>Networking, packet analysis, log analysis</p>
+                        <h5 style="margin-top: 1em;">Soft Skills</h5>
+                            <p>Leadership, learning, communication, training, empathy</p>
+                    </div>
+            </div>
+        </div>
+        <!-- Job Experience Section -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h2>Job Experience*</h2>
+                    <div>
+                        <h5 style="margin-top: 1em;">Cybersecurity Operations Analyst</h5>
+                            <p style="font-weight: bold;">Bringing greater technical ability to an analyst role through automation with Python, configuring IAM solutions, and </p>
+                                <ul>
+                                    <li>Responsible for triaging and coordinating cybersecurity incident detection, response, and remediation 
+                                        following best practices and frameworks such as the Incident Response Lifecycle. </li>
+                                    <li>Engineer and configure Identity and Access Management (IAM) solutions like Single-Sign On (SSO) and Just in Time access. 
+                                        This has helped the enterprise not only adhere more closely to the principle of Least Privileged, but allowed us to implement conditional access policies
+                                        more broadly.</li>
+                                    <li>Write wide variety custom Python scripts. These have ranged from simple data parsing to production level integrations interacting with Restful APIs, SQL databases,
+                                        and other technologies.</li>
+                                    <li>Developed processes and procedures to not just streamline the enterprise's cybersecurity landscape, but also to give others a more simplified entry point into cybersecurity
+                                        in the aim of seeing their own careers grow. I work to take a posture of servant leadership with those wanting to further their careers in security.</li>
+                                    <!-- Add more items as needed -->
+                                </ul>
+                        <h5 style="margin-top: 1em;">Cybersecurity Specialist</h5>
+                        <p style="font-weight: bold;">Worked on the organizations global cybersecurity team to configure and equip employees with security solutions.</p>
+                            <ul>
+                                <li>Configured and maintained the organization's VPN solution. This involved a range of tasks from technical work like log analysis, 
+                                    to exercising soft skills through working and troubleshooting with end users.</li>
+                                <li>Analyzed and responded to cybersecurity incidents across the globe using EDR solutions.</li>
+                                <li>Deployed cloud based solutions to equip employees with security technologies</li>
+                                <li>Created analysis solutions to better comprehend teams' security postures in order to better provide and serve employees around the world.</li>
+                                <!-- Add more items as needed -->
+                            </ul>
+                    </div>
+
+            </div>
+        </div>
+        <div>
+            <p style="font-size: smaller; margin-top: 2em;">*Specifics like workplaces, locations, and timeframes have been redacted for security. If you're on this website, you likely have access to that through another means.</p>
+        </div>
+    </div>
+
+</body>
+{% endblock %}
