@@ -1,1 +1,8 @@
 __pycache__
+
+# Ignore all files in the "flaskWebAppTerraform" folder
+flaskWebAppTerraform/*
+
+# Except for these specific files
+!flaskWebAppTerraform/main.tf
+!flaskWebAppTerraform/variables.tf
