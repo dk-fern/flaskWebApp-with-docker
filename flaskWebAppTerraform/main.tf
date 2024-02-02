@@ -30,7 +30,7 @@ resource "azurerm_service_plan" "service-plan" {
 }
 
 resource "azurerm_linux_web_app" "web-app" {
-  name                = var.app_service_name
+  name                = var.web_app_name
   resource_group_name = var.resource_group_name
   location            = var.resource_group_location
   service_plan_id     = azurerm_service_plan.service-plan.id
@@ -43,7 +43,7 @@ resource "azurerm_linux_web_app" "web-app" {
     always_on = "false"
     #app_command_line = "python app.py"
     application_stack {
-      docker_image_name   = "dkfern/flask-web-app:latest"
+      docker_image_name   = var.docker_image_name
       docker_registry_url = "https://index.docker.io"
     }
   }
