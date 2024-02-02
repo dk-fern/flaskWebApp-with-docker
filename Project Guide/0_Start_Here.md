@@ -12,3 +12,7 @@ Containerization has revolutionized the modern IT environment by providing a lig
 In this project I'll show and explain how to create a simple Docker container for your web application and keep it in your own Docker Hub repository.
 
 ### Terraform
+Infrastructure as Code (IaC) is a key practice in modern IT and cloud/hybrid environments, and [**Terraform**](https://www.terraform.io/) is one of the top tools for it. IaC allows teams to define cloud infrastructure using code rather than through a web browser or command line and through it's declarative configuration language (I'll explain more about that later) will automatically validate a cloud infrastructure's state.
+
+## Next steps
+Our first step is to set up our web application. Follow the guide for that here: [**1. Flask Guide**](https://github.com/dk-fern/flaskWebApp-with-docker/blob/main/Project%20Guide/2_Flask.md)
