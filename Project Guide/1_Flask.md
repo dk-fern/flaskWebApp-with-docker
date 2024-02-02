@@ -23,8 +23,8 @@ To run the web app, we'll need to download two python libraries, Flask and Waitr
   - *pip install waitress*
 - *Note: Note these are case sensitive. Users working on Mac may need to run: python3 pip install ____*
 
-***Explanation of commands:***
-- "pip" is the package manager used by python
-- The commands you ran are installing both the Flask and waitress python libraries, both of which are needed to run the web app
+- ***Explanation of commands:***
+  - "pip" is the package manager used by python
+  - The commands you ran are installing both the Flask and waitress python libraries, both of which are needed to run the web app
 
 ## 2. 
