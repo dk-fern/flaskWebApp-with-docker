@@ -31,12 +31,14 @@ To run the web app, we'll need to download two python libraries, Flask and Waitr
 Let's quickly run the web app as it is just to get a feel of what's going on.
 
 You can navigate to the project folder in your terminal, or an easier way can be to open the project folder directly. In the icons on the left, select "Explorer" (the top one) and choose "Open Folder". Then choose your project folder. This will open a new window with your project loaded and ready to go.
+
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/bd3caee9-4f53-4550-9430-8471b8986435)
 
 ### Run the application
 In your terminal ("Terminal" > "New Terminal") type the command ***"python app.py"***. If you've never worked with python before, then congrats! You just ran your first python application. 
 
 Open a web browser and navigate to ***"localhost:8080"***. You should see this:
+
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/1231d769-bef7-4a84-93be-e0b0a05bdb08)
 
 If the page loads, then congrats again! You just ran (maybe your first) web application! Take a look around to see what you are going to be adjusting to make your own. When you are done navigating, go back to your terminal and press ctrl + c to stop the application.
