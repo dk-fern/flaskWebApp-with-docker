@@ -118,7 +118,17 @@ To prove this, let's open up `projects.html`. Notice on line 2 we have "Projects
 
 Additionally, on line 3 and line 42, we have `{% block content %}` and `{% endblock %}` respectively, with all the HTML for that page sitting between them. This is the way that we are inserting this HTML into our pre-existing template created in `base.html`.
 
-
+### One last thing to note:
+`base.html` holds the information that creates the navigation bar at the top of the page. Look at lines 31-36:
+```html
+ <div class="navbar-nav">
+     <a class="nav-item nav-link" href="/home">Home</a>
+     <a class="nav-item nav-link" href="/resume">Resume</a>
+     <a class="nav-item nav-link" href="/projects">Projects</a>
+     <a class="nav-item nav-link" href="https://github.com/dk-fern" target="_blank">GitHub</a
+ </div>
+```
+Let's keep "Home", "Resume", and "Projects" the same (feel free to do whatever you want though if you're feeling ambitious). I would recommend though removing my github link and adding your own github.
 
 
 
