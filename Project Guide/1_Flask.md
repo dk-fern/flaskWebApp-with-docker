@@ -44,7 +44,7 @@ If the page loads, then congrats again! You just ran (maybe your first) web appl
 ### Let's look at the code
 Still in your terminal, type ***"code app.py"*** (***code <file name>*** is the vs code command to edit whichever code you want to work on). This is what you should see:
 
-```{python}
+```python
 from Website import create_app
 
 if __name__ == "__main__":
