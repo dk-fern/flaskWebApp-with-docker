@@ -30,7 +30,7 @@ To run the web app, we'll need to download two python libraries, Flask and Waitr
 ## 2. Test the application
 Let's quickly run the web app as it is just to get a feel of what's going on.
 
-You can navigate to the project folder in your terminal, or an easier way can be to open the project folder directly. In the icons on the left, select "Explorer" (the top one) and choose "Open Folder". Then choose your project folder. This will open a new window with your project loaded and ready to go.
+You can navigate to the project folder in your terminal, or an easier way can be to open the project folder directly. In the icons on the left, select "Explorer" (the top one) and choose "Open Folder". Then choose your project folder. This will open a new window with your project loaded and ready to go. You should notice in your terminal that your path is already set to your project folder.
 
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/bd3caee9-4f53-4550-9430-8471b8986435)
 
