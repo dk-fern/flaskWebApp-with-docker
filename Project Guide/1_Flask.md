@@ -35,7 +35,7 @@ You can navigate to the project folder in your terminal, or an easier way can be
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/bd3caee9-4f53-4550-9430-8471b8986435)
 
 ### Run the application
-In your terminal ("Terminal" > "New Terminal") type the command ***"python app.py"***. If you've never worked with python before, then congrats! You just ran your first python application. 
+In your terminal ("Terminal" > "New Terminal") type the command ```python app.py```. If you've never worked with python before, then congrats! You just ran your first python application. 
 
 Open a web browser and navigate to ***"localhost:8080"***. You should see this:
 
@@ -44,7 +44,7 @@ Open a web browser and navigate to ***"localhost:8080"***. You should see this:
 If the page loads, then congrats again! You just ran (maybe your first) web application! Take a look around to see what you are going to be adjusting to make your own. When you are done navigating, go back to your terminal and press ctrl + c to stop the application.
 
 ### Let's look at the code
-Still in your terminal, type ***"code app.py"*** (***code <file name>*** is the vs code command to edit whichever code you want to work on). This is what you should see:
+Still in your terminal, type ```code app.py``` (***code <file name>*** is the vs code command to edit whichever code you want to work on). This is what you should see:
 
 ```python
 from Website import create_app
