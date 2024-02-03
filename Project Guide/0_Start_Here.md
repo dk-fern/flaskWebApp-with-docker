@@ -1,6 +1,6 @@
 # Project Overview
 ## What is this project?
-This project creates a "resume style" static web application (meaning it doesn't transmit data to or from it) with the Python web application Framework, Flask. It then containerizes that application with Docker and stores it on Docker Hub. The container is then deployed to an Azure Web Application using Terraform.
+This project creates a "resume style" static web application (meaning it doesn't transmit data to or from it) with the Python web application framework, Flask. It then containerizes that application with Docker and stores it on Docker Hub. The container is then deployed to an Azure Web Application using Terraform.
 
 ## What this project demonstrates?
 ### Development
