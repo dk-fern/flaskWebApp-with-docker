@@ -16,6 +16,7 @@ Infrastructure as Code (IaC) is a key practice in modern IT and cloud/hybrid env
 
 ## Next steps
 Before we start anything, download the repository to your computer. It doesn't matter where that folder sits, but it is going to be your working project space. The non-git/simplest way to do that is to select the green **"Code"** button from the main repository page and choose **"Download Zip"**:
+
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/1c8cbe12-c777-4934-a0dd-4603ae394d6a)
 
 
