@@ -35,7 +35,7 @@ You can navigate to the project folder in your terminal, or an easier way can be
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/bd3caee9-4f53-4550-9430-8471b8986435)
 
 ### Run the application
-In your terminal ("Terminal" > "New Terminal") type the command ```python app.py```. If you've never worked with python before, then congrats! You just ran your first python application. 
+In your terminal (Navigate to: "Terminal" > "New Terminal" if it's not already open) type the command ```python app.py```. If you've never worked with python before, then congrats! You just ran your first python application. 
 
 Open a web browser and navigate to ***"localhost:8080"***. You should see this:
 
@@ -98,7 +98,36 @@ def resume():
 ```
 Each of these ***@views.route*** lines is going to define a different page in our web app. So if we navigate to our base url with just a ***"/"*** or a ***"/home"***, flask is going to load up the HTML in our ***home.html*** file. Likewise, if we go to ***"https://`<base url>`/projects"***, Flask will load our ***projects.html*** file. For now we'll leave them as is, but they can be added, removed, or adjusted as needed; we will just have to make other changes in lines 32-34 in ***"base.html"*** to match.
 
+### Web app structure:
+Take a look at the `templates` folder, this is what is actually housing the HTML that our web app uses. You can open them using `code *file_name.py*` or by just selecting it in your open folder:
+
+<img width="328" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/bbdebcf1-e4c2-4211-9750-e73b62ab43b7">
+
+We'll jump into what to actually edit in just a minute, but for now let's open up `base.html`. Flask does a cool thing where you can create a base file like this one as a template to build the web app off of, and insert *"blocks"* to adjust by each page. With `base.html` open, take a look at line 7 and line 41. Both of them have something that looks like:
+```html
+<title>{% block title %}{% endblock %}</title>
+```
+Fully understanding HTML is outside the scope of this project, but as a quick lesson, all HTML sits inside of tags like:
+- `<title>`: being the opening tag of a title
+- `</title>`: being the closing tag of a title.
+- The content of what we want the title page to be would sit in-between these tags.
+All tags need an opening and closing. The `{% block title %}{% endblock %}` part is a special part of Flask that is a way to insert other data from our other HTML files into this template.
+
+To prove this, let's open up `projects.html`. Notice on line 2 we have "Projects" sitting between the blocks mentioned earlier:
+`{% block title %}Projects{% endblock %}`
+
+Additionally, on line 3 and line 42, we have `{% block content %}` and `{% endblock %}` respectively, with all the HTML for that page sitting between them. This is the way that we are inserting this HTML into our pre-existing template created in `base.html`.
 
 
+
+
+
+
+
+
+
+
+## 3. Making It Your Own
+Now we get to the fun part of being able to edit and adjust the HTML to be your own. On this web application we have 3 pages and a 
 
 
