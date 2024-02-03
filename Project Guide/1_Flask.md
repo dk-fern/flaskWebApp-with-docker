@@ -55,7 +55,7 @@ if __name__ == "__main__":
     serve(app, host="0.0.0.0", port=8080)
     #app.run(debug=False)
 ```
-I won't explain every line of code in this web app, but I will explain this one just to get a little comfortable and because this file is structurally important to the web application:
+I won't explain every line of code in this web app, but I will explain this file fully just to get a little comfortable and because this file is structurally important to the web application:
 1. ***from Website import create_app***: Here we are pulling from within our "Website" directory a function in __init__.py called create_app. This create_app function will connect the peices of the way our web app looks and the way it structurally functions.
 2. ***if __name__ == "__main__":*** This is a Python convention that ensures the code is only executed if the script is run directly (tbh don't worry too much about this at this level)
 3. ***app = create_app()***: Here we take that function we imported in line one and turn it into an object
