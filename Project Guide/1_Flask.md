@@ -19,8 +19,8 @@ In our home [**repository page**](https://github.com/dk-fern/flaskWebApp-with-do
 ### Download necessary Python libraries
 To run the web app, we'll need to download two python libraries, Flask and Waitress (the web server used to run the application). In the upper nav bar in VS Code, select ***"Terminal"** > ***"New Terminal"***. This will open a terminal in the lower half of your screen that can be adjusted up or down.
 - **Run the following commands in your terminal:**
-  - *pip install Flask*
-  - *pip install waitress*
+  - ```*pip install Flask*```
+  - ```*pip install waitress*```
 - *Note: Note these are case sensitive. Users working on Mac may need to run: python3 pip install ____*
 
 - ***Explanation of commands:***
