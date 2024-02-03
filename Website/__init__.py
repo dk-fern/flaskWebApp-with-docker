@@ -5,7 +5,6 @@ from os import path
 
 def create_app():
     app = Flask(__name__)
-    #app.config['SECRET_KEY'] = "ksjdfa9d(*&*#HI98dfDFIHFdhfs98#IR)"
     app.config['ENV'] = 'production'
 
     from .views import views
