@@ -15,7 +15,7 @@ In this project I'll show and explain how to create a simple Docker container fo
 Infrastructure as Code (IaC) is a key practice in modern IT and cloud/hybrid environments, and [**Terraform**](https://www.terraform.io/) is one of the top tools for it. IaC allows teams to define cloud infrastructure using code rather than through a web browser or command line and through it's declarative configuration language (I'll explain more about that later) will automatically validate a cloud infrastructure's state.
 
 ## Next steps
-Before we start anything, download the repository to your computer. The non-git/simplest way to do that is to select the green **"Code"** button from the main repository page and choose **"Download Zip"**:
+Before we start anything, download the repository to your computer. It doesn't matter where that folder sits, but it is going to be your working project space. The non-git/simplest way to do that is to select the green **"Code"** button from the main repository page and choose **"Download Zip"**:
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/1c8cbe12-c777-4934-a0dd-4603ae394d6a)
 
 
