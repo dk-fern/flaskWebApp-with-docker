@@ -77,7 +77,26 @@ Open up the [***Website***](https://github.com/dk-fern/flaskWebApp-with-docker/t
 1. `static`: This folder holds our images. Flask will look for a directory named "static" to hold files like this. They are directly referenced within our HTML in a certain way that Flask will know to look back in this "static" folder to find the image we want.
 2. `templates`: This folder holds our HTML. We will soon be editing this in our next section for you to personalize this web app to make it your own
 3. `__init__.py`: This is the file that was referenced in our `app.py` file. Simply put, it's putting all the peices together for us in our web app
-4. `views.py`: This file is used by 
+4. `views.py`: Open this one up with `code views.py`, this is what you'll see:
+```python
+from flask import Blueprint, render_template
+
+views = Blueprint("views", __name__)
+
+@views.route("/")
+@views.route("/home")
+def home():
+    return render_template("home.html")
+
+@views.route("/projects")
+def projects():
+    return render_template("projects.html")
+
+@views.route("/resume")
+def resume():
+    return render_template("resume.html")
+```
+Each of these ***@views.route*** lines is going to define a different page in our web app. So if we navigate to our base url with just a ***"/"*** or a ***"/home"***, flask is going to load up the HTML in our ***home.html*** file. Likewise, if we go to ***"https://<base url>/projects"***, Flask will load our ***projects.html*** file. For now we'll leave them as is, but they can be added, removed, or adjusted as needed; we will just have to make other changes in ***"base.html"*** to match.
 
 
 
