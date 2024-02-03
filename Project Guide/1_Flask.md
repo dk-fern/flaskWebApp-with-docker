@@ -68,6 +68,17 @@ This may have felt like a lot of information (because it was, especially if you'
 1. Installed a dove into VS Code- an awesome program used by top level programmers that has very few limitations to what you can do
 2. Installed python libraries
 3. Ran our web application and saw that it worked
+4. Began understanding the Python code in our Flask application.
+
+Okay are you ready? Now let's jump into the rest of the application including adjusting the HTML!
+
+## 2. How Flask Works:
+Open up the [***Website***](https://github.com/dk-fern/flaskWebApp-with-docker/tree/main/Website) directory. Here is the rest of our Web app. You should find two folders and two files, we'll dive into each of them now:
+1. `static`: This folder holds our images. Flask will look for a directory named "static" to hold files like this. They are directly referenced within our HTML in a certain way that Flask will know to look back in this "static" folder to find the image we want.
+2. `templates`: This folder holds our HTML. We will soon be editing this in our next section for you to personalize this web app to make it your own
+3. `__init__.py`: This is the file that was referenced in our `app.py` file. Simply put, it's putting all the peices together for us in our web app
+4. `views.py`: This file is used by 
+
 
 
 
