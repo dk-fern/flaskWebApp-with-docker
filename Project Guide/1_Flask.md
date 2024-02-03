@@ -56,7 +56,7 @@ if __name__ == "__main__":
     #app.run(debug=False)
 ```
 I won't explain every line of code in this web app, but I will explain this file fully just to get a little comfortable and because this file is structurally important to the web application:
-1. ***from Website import create_app***: Here we are pulling from within our "Website" directory a function in __init__.py called create_app. This create_app function will connect the peices of the way our web app looks and the way it structurally functions.
+1. ***from Website import create_app***: Here we are pulling from within our "Website" directory a function in `__init__.py` called create_app. This create_app function will connect the peices of the way our web app looks and the way it structurally functions.
 2. ***if __name__ == "__main__":*** This is a Python convention that ensures the code is only executed if the script is run directly (tbh don't worry too much about this at this level)
 3. ***app = create_app()***: Here we take that function we imported in line one and turn it into an object
 4. ***from waitress import serve***: We import that "waitress" library we installed earlier. This will handle our web server
