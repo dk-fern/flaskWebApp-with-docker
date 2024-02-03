@@ -96,7 +96,7 @@ def projects():
 def resume():
     return render_template("resume.html")
 ```
-Each of these ***@views.route*** lines is going to define a different page in our web app. So if we navigate to our base url with just a ***"/"*** or a ***"/home"***, flask is going to load up the HTML in our ***home.html*** file. Likewise, if we go to ***"https://`<base url>`/projects"***, Flask will load our ***projects.html*** file. For now we'll leave them as is, but they can be added, removed, or adjusted as needed; we will just have to make other changes in ***"base.html"*** to match.
+Each of these ***@views.route*** lines is going to define a different page in our web app. So if we navigate to our base url with just a ***"/"*** or a ***"/home"***, flask is going to load up the HTML in our ***home.html*** file. Likewise, if we go to ***"https://`<base url>`/projects"***, Flask will load our ***projects.html*** file. For now we'll leave them as is, but they can be added, removed, or adjusted as needed; we will just have to make other changes in lines 32-34 in ***"base.html"*** to match.
 
 
 
