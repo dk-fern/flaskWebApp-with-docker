@@ -61,6 +61,7 @@ I won't explain every line of code in this web app, but I will explain this file
 3. `app = create_app()`: Here we take that function we imported in line one and turn it into an object
 4. `from waitress import serve`: We import that "waitress" library we installed earlier. This will handle our web server
 5. `serve(app, host="0.0.0.0", port=8080)`: This is the most important for us to understand right now. This using a module from the "waitress" library to start a web server, run our app, allow incoming traffic from any IP address (*host="0.0.0.0*) and open port 8080 to receive web traffic.
+6. `#app.run(debug=False)`: This is commented out code (meaning it's not actually being ran by the application). Debug mode is used in developing the application for testing and figuring out errors in your code.
 
 ### Let's take a breath
 This may have felt like a lot of information (because it was, especially if you're not super familiar with Python) but let's take a look at what we've accomplished so far:
