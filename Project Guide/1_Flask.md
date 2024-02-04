@@ -103,7 +103,7 @@ Take a look at the `templates` folder, this is what is actually housing the HTML
 
 <img width="328" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/bbdebcf1-e4c2-4211-9750-e73b62ab43b7">
 
-We'll jump into what to actually edit in just a minute, but for now let's open up `base.html`. Flask does a cool thing where you can create a base file like this one as a template to build the web app off of, and insert *"blocks"* to adjust by each page. With `base.html` open, take a look at line 7 and line 41. Both of them have something that looks like:
+We'll jump into what to actually edit in just a minute, but for now let's open up `base.html`. Flask does a cool thing where you can create a base file like this one as a template to build the web app off of (for example the upper navigation bar is in base.html so the code for that doesn't have to be inserted into every page), and insert *"blocks"* to adjust by each page. This means that our web app will be able to look consistent with less code. With `base.html` open, take a look at line 7 and line 41. Both of them have something that looks like:
 ```html
 <title>{% block title %}{% endblock %}</title>
 ```
@@ -111,6 +111,7 @@ Fully understanding HTML is outside the scope of this project, but as a quick le
 - `<title>`: being the opening tag of a title
 - `</title>`: being the closing tag of a title.
 - The content of what we want the title page to be would sit in-between these tags.
+- As you can see throughout the rest of the project, there are a lot of other kind of tags that do different things (e.g. `<div>`, `<body>`, and lots more)
 All tags need an opening and closing. The `{% block title %}{% endblock %}` part is a special part of Flask that is a way to insert other data from our other HTML files into this template.
 
 To prove this, let's open up `projects.html`. Notice on line 2 we have "Projects" sitting between the blocks mentioned earlier:
@@ -118,7 +119,7 @@ To prove this, let's open up `projects.html`. Notice on line 2 we have "Projects
 
 Additionally, on line 3 and line 42, we have `{% block content %}` and `{% endblock %}` respectively, with all the HTML for that page sitting between them. This is the way that we are inserting this HTML into our pre-existing template created in `base.html`.
 
-### One last thing to note:
+### One thing you can change in base.html:
 `base.html` holds the information that creates the navigation bar at the top of the page. Look at lines 31-36:
 ```html
  <div class="navbar-nav">
@@ -130,14 +131,42 @@ Additionally, on line 3 and line 42, we have `{% block content %}` and `{% endbl
 ```
 Let's keep "Home", "Resume", and "Projects" the same (feel free to do whatever you want though if you're feeling ambitious). I would recommend though removing my github link and adding your own github.
 
-
-
-
-
-
-
-
 ## 3. Making It Your Own
-Now we get to the fun part of being able to edit and adjust the HTML to be your own. On this web application we have 3 pages and a 
+Now we get to the fun part of being able to edit and adjust the HTML to be your own. On this web application we have 3 pages and a github link (as discussed in the last section, change the url for that to your own github account). Normally when editing the Flask application we would put it into "debug" mode to allow us to view changes along the way. For the sake of simplicity and not having to change too much within the Python part of the application we won't do that, so when you make changes to the HTML and want to view it in the web browser you will have to save the file, stop the application (remember, to do this hit `ctrl + c` while in the terminal), then restart the application (another reminder, use `python app.py` to run the application)
 
+**Lets look at the next three pages and I'll suggest some ways you can change those to fit you!**
+
+### home.html
+On this page I would suggest editing the intro chunk of text between lines 18-21:
+```html
+<p>
+     Hello, I'm Dylan, a Cybersecurity professional working, experimenting with, and deploying technology with the 
+     hope of growing and displaying my knowledge and technical ability. This website is a simple web application 
+     written using the Flask web framework for Python, containerized using Docker, and deployed using Terraform to the cloud. 
+     The goal of creating this is to not just demonstrate technical ability, but to create a guide and make all resources available for others to do the same.
+ </p>
+```
+*HINT: Technically in HTML, you can just keep typing a line without having to hit 'enter' on your keyboard. But for the sake of readability I put this paragraph on multiple lines of code. But the places where you put a new line in your HTML code isn't going to reflect as a line-break in the web browser.*
+
+The idea behind this paragraph is just an intro to you! The home page as a whole outlines the project but this will be the landing page where you can tell the viewer who you are and intro the project.
+
+### projects.html
+This page is designed to showcase some relevant technical projects that you've worked on. Lines 24-35 are what we'll be editing on this page:
+```html
+<h5 style="margin-top: 1em;">Cybersecurity Bootcamp</h5>
+    <p>A comprehensive learning path taught by industry experts. Courses ranged from Windows and Linux security, 
+        Network security, Cloud security, ethical hacking, digital foresics, incident response, and more.
+    </p>
+<h5 style="margin-top: 1em;">TryHackMe Defensive Security Learning Path</h5>
+    <p>Over 30 courses allowing hands on real world experience in a variety of topics. Courses include topics like 
+        Splunk, Wireshark, malware analysis tools, various incident response and forensics tools, and more.
+    </p>
+<h5 style="margin-top: 1em;">Security Analyst Lab</h5>
+    <p>In Azure, created and configured an intentionally vulnerable machine allowing ICMP traffic from the open internet. 
+        Pushed machine logs to Microsoft Sentinel and created a map displaying log-in attempts around the world.
+    </p>
+```
+Each chunk lists the project name within the `<h5 style="margin-top: 1em;">Cybersecurity Bootcamp</h5>` section (in this case the project is ***"Cybersecurity Bootcamp"***) and the project description falls underneath between the two `<p> </p>` tags. Because each project's HTML is the same, it can easily be duplicated and adjusted to add as many projects as necessary.
+
+### resume.html
 
