@@ -169,4 +169,33 @@ This page is designed to showcase some relevant technical projects that you've w
 Each chunk lists the project name within the `<h5 style="margin-top: 1em;">Cybersecurity Bootcamp</h5>` section (in this case the project is ***"Cybersecurity Bootcamp"***) and the project description falls underneath between the two `<p> </p>` tags. Because each project's HTML is the same, it can easily be duplicated and adjusted to add as many projects as necessary.
 
 ### resume.html
-
+Finally, our resume page is to showcase your job experience. The HTML on this page is a little less repeatable, but I would suggest running the web application and looking at the code side-by-side to get a good view of what each section does. At a high level, like a regular resume, we have a few different headers: **"About Me"** (line 14), **"Skills"** (line 27), and **"Job Experience"** (line 41). 
+- In the **"About Me"** section, adjust the paragraph between the `<p> </p>` tags to fit yourself
+- In the **"Skills"** section, lines 29-34 are broken down into further subsections: "Operating Systems, Programming Languages, and Technologies", "Other Technical Skills", and "Soft Skills" with the actual skills falling between the the `<p> </p>` tags. Adjust anything to your liking
+```html
+<h5 style="margin-top: 1em;">Operating Systems, Programming Languages, and Technologies</h5>
+    <p>Windows, Linux, Python, Azure, Terraform, Splunk, Microsoft Defender, Active Directory</p>
+<h5 style="margin-top: 1em;">Other Technical Skills</h5>
+    <p>Networking, packet analysis, log analysis</p>
+<h5 style="margin-top: 1em;">Soft Skills</h5>
+    <p>Leadership, learning, communication, training, empathy</p>
+```
+- In the **"Job Experience"** section, lines 43-64 are also broken down into subsections.
+```html
+<h5 style="margin-top: 1em;">Cybersecurity Operations Analyst</h5>
+<p style="font-weight: bold;">Bringing greater technical ability to an analyst role through automation with Python, configuring IAM solutions, and vulnerability management</p>
+  <ul>
+      <li>Responsible for triaging and coordinating cybersecurity incident detection, response, and remediation 
+          following best practices and frameworks such as the Incident Response Lifecycle. </li>
+      <li>Engineer and configure Identity and Access Management (IAM) solutions like Single-Sign On (SSO) and Just in Time access. 
+          This has helped the enterprise not only adhere more closely to the principle of Least Privileged, but allowed us to implement conditional access policies
+          more broadly.</li>
+      <li>Write wide variety custom Python scripts. These have ranged from simple data parsing to production level integrations interacting with Restful APIs, SQL databases,
+          and other technologies.</li>
+      <li>Developed processes and procedures to not just streamline the enterprise's cybersecurity landscape, but also to give others a more simplified entry point into cybersecurity
+          in the aim of seeing their own careers grow. I work to take a posture of servant leadership with those wanting to further their careers in security.</li>
+      <!-- Add more items as needed -->
+  </ul>
+```
+   - The Job title is between the `<h5> </h5>` tags, the description is the line below that betwen the `<p> </p>` tags, and the responsibilities are each listed in `<li> </li>` tags.
+   - *HINT: Keep each listed item on it's own row like I have it in this code to make it easy to organize
