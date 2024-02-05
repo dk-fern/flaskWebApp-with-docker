@@ -32,7 +32,8 @@ Download and install [Python](https://www.python.org/downloads/) if not already 
    - I'll suggest more extensions to download in the next two docs, but for now I prefer using: "Python" and "Prettier - Code formatter" as they both make coding in Python and HTML a little more convenient
   
 ### Download necessary Python libraries
-To run the web app, we'll need to download two python libraries, Flask and Waitress (the web server used to run the application). In the upper nav bar in VS Code, select ***"Terminal"** > ***"New Terminal"***. This will open a terminal in the lower half of your screen that can be adjusted up or down.
+Python libraries are pre-built code that you can use to enhance your own code. This can be helpful because to builda complex application, you won't have to write every single bit of code yourself. To run our web app, we'll need to download two python libraries, Flask and Waitress (the web server used to run the application). In the upper nav bar in VS Code, select ***"Terminal"** > ***"New Terminal"***. This will open a terminal in the lower half of your screen that can be adjusted up or down.
+
 - **Run the following commands in your terminal:**
   - ```pip install Flask```
   - ```pip install waitress```
