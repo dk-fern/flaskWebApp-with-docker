@@ -14,6 +14,8 @@ In our home [**repository page**](https://github.com/dk-fern/flaskWebApp-with-do
 **We're going to first download everything we need to run and edit our application:**
 ### Download your IDE (code editor)
 - Download and install [**VS Code**](https://code.visualstudio.com/download) -- Visual Studio Code (VS Code) is a commonly used tool created by Microsoft for writing code that includes options for features that make writing code convenient (e.g. the use of extensions, a built in terminal window, etc.)
+<img width="906" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/f7bb9197-17a1-4857-a737-194452f0cd7f">
+
 - *Optional but encouraged* - Download a few extensions for vs code:
    - With VS Code open, select the "Extensions" button on the left: ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/2b4d49b1-fd74-440c-a8ac-6cfb458054ef)
    - I'll suggest more extensions to download in the next two docs, but for now I prefer using: "Python" and "Prettier - Code formatter" as they both make coding in Python and HTML a little more convenient
