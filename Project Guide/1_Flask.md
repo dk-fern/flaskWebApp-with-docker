@@ -15,6 +15,13 @@ In our home [**repository page**](https://github.com/dk-fern/flaskWebApp-with-do
 # Steps
 ## 1. Download dependencies
 **We're going to first download everything we need to run and edit our application:**
+
+### Download Python
+Download and install [Python](https://www.python.org/downloads/) if not already installed on your device. As you install, just accept the defaults and you should be good to go.
+
+<img width="889" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/d576607b-5e47-476a-adbe-8478cc96f399">
+
+
 ### Download your IDE (code editor)
 - Download and install [**VS Code**](https://code.visualstudio.com/download) -- Visual Studio Code (VS Code) is a commonly used tool created by Microsoft for writing code that includes options for features that make writing code convenient (e.g. the use of extensions, a built in terminal window, etc.)
 
