@@ -9,11 +9,15 @@ In our home [**repository page**](https://github.com/dk-fern/flaskWebApp-with-do
 - [**The Website Directory**](https://github.com/dk-fern/flaskWebApp-with-docker/tree/main/Website) -- This holds the contents to our web application including all the HTML, Python code, and images used.
 - **app.py** -- This is the code that launches the application. Naming this code 'app.py' is a common convention used in Flask
 
+<img width="761" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/78923723-80fb-491d-ad26-1fd592681c55">
+
+
 # Steps
 ## 1. Download dependencies
 **We're going to first download everything we need to run and edit our application:**
 ### Download your IDE (code editor)
 - Download and install [**VS Code**](https://code.visualstudio.com/download) -- Visual Studio Code (VS Code) is a commonly used tool created by Microsoft for writing code that includes options for features that make writing code convenient (e.g. the use of extensions, a built in terminal window, etc.)
+
 <img width="906" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/f7bb9197-17a1-4857-a737-194452f0cd7f">
 
 - *Optional but encouraged* - Download a few extensions for vs code:
