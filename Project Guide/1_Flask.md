@@ -1,6 +1,6 @@
 # Step 1: Create your Flask application
 
-First we are going to create our web application. 
+First we are going to create our web application. To be perfectly honest, this is going to be the longest and most complex part of the project. And to be perfectly honest again, as an IT professional the Docker and Terraform parts of this project are actually more substantial and important to your career, but in this step we have the opportunity to be creative and have a little fun. Let's jump into it!
 
 ## Structure Explanation:
 In our home [**repository page**](https://github.com/dk-fern/flaskWebApp-with-docker) the files for the web app are:
@@ -134,6 +134,8 @@ Let's keep "Home", "Resume", and "Projects" the same (feel free to do whatever y
 ## 3. Making It Your Own
 Now we get to the fun part of being able to edit and adjust the HTML to be your own. On this web application we have 3 pages and a github link (as discussed in the last section, change the url for that to your own github account). Normally when editing the Flask application we would put it into "debug" mode to allow us to view changes along the way. For the sake of simplicity and not having to change too much within the Python part of the application we won't do that, so when you make changes to the HTML and want to view it in the web browser you will have to save the file, stop the application (remember, to do this hit `ctrl + c` while in the terminal), then restart the application (another reminder, use `python app.py` to run the application)
 
+NOTE: If you start getting lost in the HTML or want to add some of your own functionality that isn't currently being utilized, I would highly suggest using a tool like ChatGPT or Edge's Copilot funtionality (which is just ChatGPT). While these tools aren't always the best at adding complext functionality, putting in your HTML and asking the tool to clean it up or clarify something can be super helpful and is honestly what I did when creating this, as I had pretty limited experience with HTML or Bootstrap.
+
 **Lets look at the next three pages and I'll suggest some ways you can change those to fit you!**
 
 ### home.html
@@ -180,6 +182,7 @@ Finally, our resume page is to showcase your job experience. The HTML on this pa
 <h5 style="margin-top: 1em;">Soft Skills</h5>
     <p>Leadership, learning, communication, training, empathy</p>
 ```
+
 - In the **"Job Experience"** section, lines 43-64 are also broken down into subsections.
 ```html
 <h5 style="margin-top: 1em;">Cybersecurity Operations Analyst</h5>
@@ -197,5 +200,21 @@ Finally, our resume page is to showcase your job experience. The HTML on this pa
       <!-- Add more items as needed -->
   </ul>
 ```
+  
    - The Job title is between the `<h5> </h5>` tags, the description is the line below that betwen the `<p> </p>` tags, and the responsibilities are each listed in `<li> </li>` tags.
    - *HINT: Keep each listed item on it's own row like I have it in this code to make it easy to organize
+
+If you're feeling overwhelmed with the HTML or getting lost, remember to utilize ChatGPT or a similar AI tool. Putting in your HTML and asking it to clean up your code for you or explain certain lines can be super helpful.
+
+## 4. Final Step: Re-run Your Web Application
+
+With everything saved, let's re-run the web app and see our finished product. I'm sure you did this multiple times throughout testing and development, but in your terminal (make sure your terminal path is back in the same directory as `app.py`) run the command `python app.py`. Open up your web browser, navigate to ***"localhost:8080"*** and take a look.
+
+I'm crossing my fingers for you that everything works and looks good, and congratulations! You've successfully created your first web application and I'm sure it looks great!
+
+## Next steps: 
+Like I said at the beginning: as an IT professional, developing a web application isn't generally a necessary part of the job. But this step was necessary in our project to get to using Docker and Terraform to deploy the application. While you could have done the same thing with a sample web app that just showed a generic website with no functionality, you instead took the chance to learn something new and actually interesting/useful. Having your own resume website is great to show off to employers and really stands out! 
+
+Now let's move to our next step, getting hands-on with Docker. Click here to move to the [Docker Guide](https://github.com/dk-fern/flaskWebApp-with-docker/blob/main/Project%20Guide/2_Docker.md)
+
+
