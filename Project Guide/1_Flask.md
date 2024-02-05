@@ -2,6 +2,8 @@
 
 First we are going to create our web application. To be perfectly honest, this is going to be the longest and most complex part of the project. And to be perfectly honest again, as an IT professional the Docker and Terraform parts of this project are actually more substantial and important to your career, but in this step we have the opportunity to be creative and have a little fun. Let's jump into it!
 
+[Official Flask Documentation](https://flask.palletsprojects.com/en/3.0.x/)
+
 ## Structure Explanation:
 In our home [**repository page**](https://github.com/dk-fern/flaskWebApp-with-docker) we will find the files for our web application:
 - [**The Website Directory**](https://github.com/dk-fern/flaskWebApp-with-docker/tree/main/Website) -- This holds the contents to our web application including all the HTML, Python code, and images used.
