@@ -10,6 +10,12 @@
 
 ### 1. Download Docker
 
+...
+
 ### 2. Create a Docker Hub account
 
+...
+
 ### 3. Build your Dockerfile
+
+...
