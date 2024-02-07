@@ -65,11 +65,11 @@ The Dockerfile is also going to be fairly simple to create for our application. 
 **How To:**
 1. Install the Docker extension for VS Code. On the left hand side of VS Code, click on the ***"Extensions"*** icon, and type in *Docker* to find the extensions.
 
-<img width="313" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/fdbb57b7-0dfe-48af-8a60-54879c6e9d78">
+  <img width="313" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/fdbb57b7-0dfe-48af-8a60-54879c6e9d78">
 
-You may need to close and re-open the program. This extension can help us with formatting and give helpful tools and tips for creating Docker images.
+  You may need to close and re-open the program. This extension can help us with formatting and give helpful tools and tips for creating Docker images.
 
-3. In the terminal run `code Dockerfile` (note the file doesn't have an extension). We are going to write 6 lines of code that will build our Docker image:
+3. In the terminal run `code Dockerfile` (note the capital "D" in Docker and that the file doesn't have an extension). We are going to write 6 lines of code that will build our Docker image:
 
 ```docker
 FROM python:3-alpine3.18
@@ -85,4 +85,7 @@ EXPOSE 8080
 CMD ["python", "./app.py"]
 ```
 
+Now don't just copy and paste this, but write it out line by line for the experience and getting more comfortable.
+
+**Line 1**: On the first line of your Dockerfile we're going to 
 
