@@ -47,6 +47,42 @@ Now comes the fun hands on stuff, let's build your Dockerfile. In VS Code, with 
 Now let's get to building:
 
 ### requirements.txt
-***requirements.txt*** is used by our Dockerfile to install any libraries or other dependencies the container will need. Remember when we created our web application we had to run `pip install flask` and `pip install waitress`?
+***"requirements.txt"*** is used by our Dockerfile to install any libraries or other dependencies the container will need. Remember when we created our web application we had to run `pip install flask` and `pip install waitress`? The ***"requirements.txt"*** file will tell our Docker container to do the same thing with any libraries defined in it. 
+
+**How To:**
+1. If it isn't already open, open your terminal in VS Code. Make sure you are in the project's root directory (the same one that ***"app.py"*** is in), and run `code requirements.txt`. This will open up a new file to work on.
+2. On line one, type ***"flask"***, and on line 2 type ***"waitress"***, like so:
+```
+flask
+waitress
+```
+
+Then just make sure you save it, and you're good to go for this file. As a note, ***"requirements.txt"*** is a standard naming convention of this file, so Docker when building the container image, will specifically look for a file name ***"requirements.txt"*** to find the names of add-ons to install.
+
+### Dockerfile
+The Dockerfile is also going to be fairly simple to create for our application. This isn't always the case, but because our application is simple, it makes the Dockerfile simple as well.
+
+**How To:**
+1. Install the Docker extension for VS Code. On the left hand side of VS Code, click on the ***"Extensions"*** icon, and type in *Docker* to find the extensions.
+
+<img width="313" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/fdbb57b7-0dfe-48af-8a60-54879c6e9d78">
+
+You may need to close and re-open the program. This extension can help us with formatting and give helpful tools and tips for creating Docker images.
+
+3. In the terminal run `code Dockerfile` (note the file doesn't have an extension). We are going to write 6 lines of code that will build our Docker image:
+
+```docker
+FROM python:3-alpine3.18
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8080
+
+CMD ["python", "./app.py"]
+```
 
 
