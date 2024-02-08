@@ -96,3 +96,8 @@ FROM python:3-alpine3.18
 **BREAKDOWN:**
 
 Python has official base Docker images that can be built on, but come pre-installed with Python. You can take a look at the [Python Docker Hub repo](https://hub.docker.com/_/python) if you're interested in learning more. Alpine3.18 is a simple Linux distribution that is lightweight. You may notice that as you were typing this line, suggestions for other versions of Alpine appeared (this is because of the Docker extension we installed earlier). Although continuing to use Alpine3.18 should work, I would suggest you use the latest version of Alpine for the sake of security and longevity.
+
+What we're essentially saying to Docker when it builds the image is: *"Use this base Alpine Linux image with Python already pre-installed, and we're gonna build the rest of our container on top of it"*. 
+
+![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/79aa9eca-cf9f-4379-8308-4566c9044995)
+
