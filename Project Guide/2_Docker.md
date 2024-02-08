@@ -177,9 +177,9 @@ Run the command:
 docker build -t <image_name> .
 ```
 
-`docker build` tells Docker to build an image based on a Dockerfile
-`-t <image_name>` assigns a tag to the image. Substitute `<image_name>` with anything you want
-`.` The dot (***"."***) tells docker to look in the current directory for the Dockerfile
+`docker build` tells Docker to build an image based on a Dockerfile.
+`-t <image_name>` assigns a tag to the image. Substitute `<image_name>` with anything you want.
+`.` The dot (***"."***) tells docker to look in the current directory for the Dockerfile.
 
 
 
