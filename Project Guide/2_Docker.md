@@ -36,6 +36,8 @@ Navigate to [THIS LINK](https://www.docker.com/products/docker-desktop/) to down
 
 Proceed with installing the application, accepting defaults when prompted. This will not only give you a gui version of Docker, but allow you to use Docker from the command line.
 
+Now let's open the application, this will ensure that the Docker engine starts and will be running when we want to use it. If you ever encounter an error mentioning the Docker service/daemon isn't running, you can simply open Docker Desktop and it will start.
+
 ## 2. Create a Docker Hub account
 Navigate to [THIS LINK](https://hub.docker.com/) and create a Docker Hub account. This will create your own repository to store your soon-to-be-created Docker image.
 
@@ -165,6 +167,7 @@ CMD ["python", "./app.py"]
 # Building the Docker Image
 Although we have Docker Desktop (the gui application) installed, we're primarily going to be working in the command line for this. I like doing this because although Docker Desktop is really convenient when running multiple Docker images, and the whole Docker experience easy, I feel like using the command line helps you understand what's actually going on more than the gui version.
 
+
 ## Steps:
 Like always, make sure we have our project folder and terminal windows open, and ensure that in the terminal you are in the same directory as the Dockerfile. 
 
@@ -181,6 +184,22 @@ docker build -t <image_name> .
 - `-t <image_name>` assigns a tag to the image. Substitute `<image_name>` with anything you want.
 - `.` The dot (***"."***) tells docker to look in the current directory for the Dockerfile.
 
+This will create our docker image. Make sure it worked by running: `docker image ls`. You should get an output that looks similar to this:
+```
+REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
+dkfern/flask-web-app   0.0.1     830ddb928cd5   2 weeks ago   67MB
+```
+*REMEMBER: If you get some sort of error related to the service/daemon not running, open Docker Desktop and it will start.*
+
+### 2. Run the container 
+
+[NOTE!]
+>A note about image names**
+>- Docker images consist of both a name and in most cases a tag, separated by a colon. Tags are often used for version control.
+>- If you look above at my sample output, the full name of my image would be ***dkfern/flask-web-app:0.0.1***
+>- A naming convention is frequently using the tag ":latest", when a tag is not defined on an image, the tag ":latest" will be automatically applied.
+
+docker run -d -p 8080:8080 <image_name>
 
 
 
