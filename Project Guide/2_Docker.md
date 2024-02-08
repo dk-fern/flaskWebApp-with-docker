@@ -42,7 +42,7 @@ Navigate to [THIS LINK](https://hub.docker.com/) and create a Docker Hub account
 You will also need to sign in to the Docker Desktop application using this new account.
 
 ## 3. Build your Dockerfile
-Now comes the fun hands on stuff, let's build your Dockerfile. In VS Code, with your project folder open like we did before (you can navigate to *"file"* > *"Open Folder..."* if it's not already open), I want you to right-click on the ***"Dockerfile"*** file, and delete it. Why? Cause we're going to be re-building it from scratch together, and it's actually pretty simple. See that file named ***"requirements.txt"***? Delete that too!
+Now comes the fun hands on stuff, let's build your Dockerfile. In VS Code, with your project folder open like we did before (you can navigate to *"file"* > *"Open Folder..."* if it's not already open), I want you to right-click on the ***"Dockerfile"*** file, and delete it. Why? Cause we're going to be re-building it from scratch together, and it's actually pretty simple. See the files named ***".dockerignore"*** and ***"requirements.txt"***? Delete those too!
 
 Now let's get to building:
 
@@ -58,6 +58,17 @@ waitress
 ```
 
 Then just make sure you save it, and you're good to go for this file. As a note, ***"requirements.txt"*** is a standard naming convention of this file, so Docker when building the container image, will specifically look for a file name ***"requirements.txt"*** to find the names of add-ons to install.
+
+### .dockerignore
+The .dockerignore file is used to tell Docker, *"Do not include these things in the Docker image"*. This can be done for a number of reasons, but in our case, we don't want anything related to git, terraform, or these project instructions in our image, as they have no use for the container. In your terminal run `code .dockerignore`, copy and paste the contents below:
+
+```
+__pycache__
+flaskWebAppTerraform
+Project Guide
+```
+
+Then hit save and you're good to go!
 
 ### Dockerfile
 The Dockerfile is also going to be fairly simple to create for our application. This isn't always the case, but because our application is simple, it makes the Dockerfile simple as well.
@@ -93,9 +104,9 @@ Now don't just copy and paste this, but write it out line by line for the experi
 FROM python:3-alpine3.18
 ```
 
-**BREAKDOWN:**
-
-What we're essentially saying to Docker when it builds the image is: *"Use this base Alpine Linux image with Python already pre-installed, and we're gonna build the rest of our container on top of it"*. This allows us to simplify things and not have to manually install Python into our container. Python has a [Docker Hub repo](https://hub.docker.com/_/python) with a good amount of pre-configured images that you can use for projects. As a suggestion, I would use as recent of a Docker image as you can for the sake of security and longevity (note: in my own version I notice there is a more recent Alpine version than 3.18, I will update that in my personal docker image). You may notice that when you type, because of the VS Code Docker extension, suggestions pop-up for what container images are available to use, if you don't see that you can start typing `FROM python:3` then hit `ctrl + space` and the suggestions should appear for you.
+  **BREAKDOWN:**
+  
+  What we're essentially saying to Docker when it builds the image is: *"Use this base Alpine Linux image with Python already pre-installed, and we're gonna build the rest of our container on top of it"*. This allows us to simplify things and not have to manually install Python into our container. Python has a [Docker Hub repo](https://hub.docker.com/_/python) with a good amount of pre-configured images that you can use for projects. As a suggestion, I would use as recent of a Docker image as you can for the sake of security and longevity (note: in my own version I notice there is a more recent Alpine version than 3.18, I will update that in my personal docker image). You may notice that when you type, because of the VS Code Docker extension, suggestions pop-up for what container images are available to use, if you don't see that you can start typing `FROM python:3` then hit `ctrl + space` and the suggestions should appear for you.
 
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/79aa9eca-cf9f-4379-8308-4566c9044995)
 
@@ -109,6 +120,43 @@ WORKDIR /app
 COPY . /app
 ```
 
-**BREAKDOWN:**
+  **BREAKDOWN:**
+  
+  Previously in line 1 we defined our base Docker image. Now we are defining which folder we want the application to be moved to. `WORKDIR /app` tells Docker: *"When you build the Docker image, use **"/app"** as the folder to do everything from"*. `COPY . /app` is telling Docker to copy all contents from this folder (The **"."** means the folder you are currently in) into our newly created **"/app"** folder in our container. Remember, the contents of anything in ***".dockerignore"*** won't be included in our container.
 
-Previously in line 1 we defined our base Docker image. Now we are defining which folder we want the application to be moved to. `WORKDIR /app` tells Docker: *"When you build the Docker image, use **"/app"** as the folder to do everything from."*
+### **Line 4**
+Again, skip a line and write:
+
+```docker
+RUN pip install -r requirements.txt
+```
+
+  **BREAKDOWN:**
+
+  This is telling Docker: *"Run the command `pip install -r requirements.txt`"*. If you think back to the work we've done already, when we install Python libraries, we use `pip <library name>` to do so, and we created ***"requirements.txt"*** to define the libraries we are going to install. This ensures that our container has the required libraries installed for our web app.
+
+### **Line 5
+Skip another line and write:
+
+```docker
+EXPOSE 8080
+```
+
+  **BREAKDOWN**
+
+  Remember previously when we built our Flask application when we used a web server to allow web traffic over port 8080? We now need to tell our container to allow traffic to that same port, this is what this line is doing.
+
+### **Line 6**
+Last line, skip another line and write:
+
+```docker
+CMD ["python", "./app.py"]
+```
+
+  **BREAKDOWN**
+
+  This is going to be the command that runs our web application. It's a little different than when we used ***"RUN"*** in line 4, because that was used in the container's build process. In this case, ***"CMD"*** is going to define what command should be ran when the container is started.
+
+
+
+
