@@ -25,6 +25,8 @@ While other containerization tools exist, Docker is by far one of the most popul
 - **Dockerfile**: A text-based script that contains instructions for building a Docker image. It specifies the base image to use, the commands to run during the image build process, environment variables, and other configuration settings required to create a containerized application. Dockerfiles enable developers to automate the process of building consistent and reproducible container images, promoting best practices for containerization.
 - **Docker Hub**: An online repository for Docker images. With Docker we can pull any public Docker container to use for ourselves, and we can push containers to our own repository to be used later or by others.
 
+**Let's get started!**
+
 ## Steps:
 
 ## 1. Download Docker
@@ -60,7 +62,7 @@ waitress
 Then just make sure you save it, and you're good to go for this file. As a note, ***"requirements.txt"*** is a standard naming convention of this file, so Docker when building the container image, will specifically look for a file name ***"requirements.txt"*** to find the names of add-ons to install.
 
 ### .dockerignore
-The .dockerignore file is used to tell Docker, *"Do not include these things in the Docker image"*. This can be done for a number of reasons, but in our case, we don't want anything related to git, terraform, or these project instructions in our image, as they have no use for the container. In your terminal run `code .dockerignore`, copy and paste the contents below:
+The .dockerignore file is used to tell Docker, *"Do not include these things in the Docker image"*. This can be done for a number of reasons, but in our case, we don't want anything related to git, terraform, or these project instructions in our image, as they have no use for the container. In your terminal run `code .dockerignore` (note the dot "." at the beginning of the filename), copy and paste the contents below:
 
 ```
 __pycache__
@@ -80,7 +82,7 @@ The Dockerfile is also going to be fairly simple to create for our application. 
 
   You may need to close and re-open the program. This extension can help us with formatting and give helpful tools and tips for creating Docker images.
 
-3. In the terminal run `code Dockerfile` (note the capital "D" in Docker and that the file doesn't have an extension). We are going to write 6 lines of code that will build our Docker image:
+2. In the terminal run `code Dockerfile` (note the capital "D" in Docker and that the file doesn't have an extension). We are going to write 6 lines of code that will build our Docker image:
 
 ```docker
 FROM python:3-alpine3.18
@@ -144,7 +146,7 @@ EXPOSE 8080
 
   **BREAKDOWN**
 
-  Remember previously when we built our Flask application when we used a web server to allow web traffic over port 8080? We now need to tell our container to allow traffic to that same port, this is what this line is doing.
+  Remember previously when we built our Flask application we used a web server to allow web traffic over port 8080? We now need to tell our container to allow traffic to that same port, this is what this line is doing.
 
 ### **Line 6**
 Last line, skip another line and write:
@@ -156,6 +158,36 @@ CMD ["python", "./app.py"]
   **BREAKDOWN**
 
   This is going to be the command that runs our web application. It's a little different than when we used ***"RUN"*** in line 4, because that was used in the container's build process. In this case, ***"CMD"*** is going to define what command should be ran when the container is started.
+
+**That should be it!** We have our Dockerfile and all our pieces in place, let's build our Docker image.
+
+
+# Building the Docker Image
+Although we have Docker Desktop (the gui application) installed, we're primarily going to be working in the command line for this. I like doing this because although Docker Desktop is really convenient when running multiple Docker images, and the whole Docker experience easy, I feel like using the command line helps you understand what's actually going on more than the gui version.
+
+## Steps:
+Like always, make sure we have our project folder and terminal windows open, and ensure that in the terminal you are in the same directory as the Dockerfile. 
+
+### 1. Build the image
+
+***Validate everything works:*** Run the command `docker --version` and make sure you don't get any sort of error message. You sould see the version of Docker you are working with.
+
+Run the command:
+```docker
+docker build -t <image_name> .
+```
+
+`docker build` tells Docker to build an image based on a Dockerfile
+`-t <image_name>` assigns a tag to the image. Substitute `<image_name>` with anything you want
+`.` The dot (***"."***) tells docker to look in the current directory for the Dockerfile
+
+
+
+
+
+
+
+
 
 
 
