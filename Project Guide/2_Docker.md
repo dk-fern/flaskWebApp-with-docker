@@ -95,9 +95,8 @@ FROM python:3-alpine3.18
 
 **BREAKDOWN:**
 
-Python has official base Docker images that can be built on, but come pre-installed with Python. You can take a look at the [Python Docker Hub repo](https://hub.docker.com/_/python) if you're interested in learning more. Alpine3.18 is a simple Linux distribution that is lightweight. You may notice that as you were typing this line, suggestions for other versions of Alpine appeared (this is because of the Docker extension we installed earlier). Although continuing to use Alpine3.18 should work, I would suggest you use the latest version of Alpine for the sake of security and longevity.
-
-What we're essentially saying to Docker when it builds the image is: *"Use this base Alpine Linux image with Python already pre-installed, and we're gonna build the rest of our container on top of it"*. 
+What we're essentially saying to Docker when it builds the image is: *"Use this base Alpine Linux image with Python already pre-installed, and we're gonna build the rest of our container on top of it"*. This allows us to simplify things and not have to manually install Python into our container. Python has a [Docker Hub repo](https://hub.docker.com/_/python) with a good amount of pre-configured images that you can use for projects. As a suggestion, I would use as recent of a Docker image as you can for the sake of security and longevity (note: in my own version I notice there is a more recent Alpine version than 3.18, I will update that in my personal docker image). You may notice that when you type, because of the VS Code Docker extension, suggestions pop-up for what container images are available to use, if you don't see that you can start typing `FROM python:3` then hit `ctrl + space` and the suggestions should appear for you.
 
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/79aa9eca-cf9f-4379-8308-4566c9044995)
+
 
