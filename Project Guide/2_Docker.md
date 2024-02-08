@@ -42,7 +42,7 @@ Navigate to [THIS LINK](https://hub.docker.com/) and create a Docker Hub account
 You will also need to sign in to the Docker Desktop application using this new account.
 
 ## 3. Build your Dockerfile
-Now comes the fun hands on stuff, let's build your Dockerfile. In VS Code, with your project open like we did before, I want you to right-click on the ***"Dockerfile"*** file, and delete it. Why? Cause we're going to be re-building it from scratch together, and it's actually pretty simple. See that file named ***"requirements.txt"***? Delete that too!
+Now comes the fun hands on stuff, let's build your Dockerfile. In VS Code, with your project folder open like we did before (you can navigate to *"file"* > *"Open Folder..."* if it's not already open), I want you to right-click on the ***"Dockerfile"*** file, and delete it. Why? Cause we're going to be re-building it from scratch together, and it's actually pretty simple. See that file named ***"requirements.txt"***? Delete that too!
 
 Now let's get to building:
 
