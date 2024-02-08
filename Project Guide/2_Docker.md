@@ -93,5 +93,6 @@ Now don't just copy and paste this, but write it out line by line for the experi
 FROM python:3-alpine3.18
 ```
 
-**BREAKDOWN**
+**BREAKDOWN:**
+
 Python has official base Docker images that can be built on, but come pre-installed with Python. You can take a look at the [Python Docker Hub repo](https://hub.docker.com/_/python) if you're interested in learning more. Alpine3.18 is a simple Linux distribution that is lightweight. You may notice that as you were typing this line, suggestions for other versions of Alpine appeared (this is because of the Docker extension we installed earlier). Although continuing to use Alpine3.18 should work, I would suggest you use the latest version of Alpine for the sake of security and longevity.
