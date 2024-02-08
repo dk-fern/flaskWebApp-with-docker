@@ -135,7 +135,7 @@ RUN pip install -r requirements.txt
 
   This is telling Docker: *"Run the command `pip install -r requirements.txt`"*. If you think back to the work we've done already, when we install Python libraries, we use `pip <library name>` to do so, and we created ***"requirements.txt"*** to define the libraries we are going to install. This ensures that our container has the required libraries installed for our web app.
 
-### **Line 5
+### **Line 5**
 Skip another line and write:
 
 ```docker
