@@ -87,7 +87,7 @@ CMD ["python", "./app.py"]
 
 Now don't just copy and paste this, but write it out line by line for the experience and getting more comfortable.
 
-**Line 1**: On the first line of your Dockerfile we're going to write:
+### **Line 1**: On the first line of your Dockerfile we're going to write:
 
 ```docker
 FROM python:3-alpine3.18
@@ -99,4 +99,16 @@ What we're essentially saying to Docker when it builds the image is: *"Use this 
 
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/79aa9eca-cf9f-4379-8308-4566c9044995)
 
+### **Lines 2-3**
 
+I personally like to skip lines in the file for neat-ness. Either way, the second and third lines of our Dockerfile are going to look like this:
+
+```docker
+WORKDIR /app
+
+COPY . /app
+```
+
+**BREAKDOWN:**
+
+Previously in line 1 we defined our base Docker image. Now we are defining which folder we want the application to be moved to. `WORKDIR /app` tells Docker: *"When you build the Docker image, use **"/app"** as the folder to do everything from."*
