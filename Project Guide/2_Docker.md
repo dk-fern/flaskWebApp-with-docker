@@ -193,11 +193,11 @@ dkfern/flask-web-app   0.0.1     830ddb928cd5   2 weeks ago   67MB
 
 ### 2. Run the container 
 
-[!NOTE]
->A note about image names**
->- Docker images consist of both a name and in most cases a tag, separated by a colon. Tags are often used for version control.
->- If you look above at my sample output, the full name of my image would be ***dkfern/flask-web-app:0.0.1***
->- A naming convention is frequently using the tag ":latest", when a tag is not defined on an image, the tag ":latest" will be automatically applied.
+> [!NOTE]
+> A note about image names**
+> - Docker images consist of both a name and in most cases a tag, separated by a colon. Tags are often used for version control.
+> - If you look above at my sample output, the full name of my image would be ***dkfern/flask-web-app:0.0.1***
+> - A naming convention is frequently using the tag ":latest", when a tag is not defined on an image, the tag ":latest" will be automatically applied.
 
 docker run -d -p 8080:8080 <image_name>
 
