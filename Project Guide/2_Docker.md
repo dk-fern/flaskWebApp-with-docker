@@ -192,6 +192,7 @@ dkfern/flask-web-app   0.0.1     830ddb928cd5   2 weeks ago   67MB
 *REMEMBER: If you get some sort of error related to the service/daemon not running, open Docker Desktop and it will start.*
 
 ### 2. Run the container 
+Now let's run our Docker image to give it a test!
 
 > [!NOTE]
 > A note about image names**
@@ -199,7 +200,21 @@ dkfern/flask-web-app   0.0.1     830ddb928cd5   2 weeks ago   67MB
 > - If you look above at my sample output, the full name of my image would be ***dkfern/flask-web-app:0.0.1***
 > - A naming convention is frequently using the tag ":latest", when a tag is not defined on an image, the tag ":latest" will be automatically applied.
 
-docker run -d -p 8080:8080 <image_name>
+**To run the Docker image we'll use this command:**
+  ```docker
+  docker run -d -p 8080:8080 <image_name>
+  ```
+
+Some things to note in this command:
+- Use your image name and tag rather than `<image_name>`. So in my case, the image name would be: ***"dkfern/flask-web-app:0.0.1"***
+- `docker run` is telling docker to run a Docker image as a container
+- `-d` is uses to run in *"detatched"* mode, meaning you can have continued use of your terminal. Not using "-d" wouldn't allow you to continue typing comands and you would have to press ***"ctrl+c"*** to exit
+- `-p 8080:8080` The "-p" flag specifies ports followed by the ports to direct to/from. The port number left of the colon specifies the host port, meaning which port your computer will use to connect to the container. The port number left of the colon specifies the container port, meaning which port the container will use to connect to your computer. These numbers don't have to be the same, but remember that in our web application we exposed **port 8080**. This means that our container port (the one on the right) does have to be 8080. When we go to access our web application in one second, the port number we specify as our host port (the left one) will have to be defined in our web browser.
+
+That should be it! Open your web browser and navigate to `localhost:8080` and you should see your running web application.
+
+### Congratulations!
+You just ran your first container image! Now let's push it to Docker Hub.
 
 
 
