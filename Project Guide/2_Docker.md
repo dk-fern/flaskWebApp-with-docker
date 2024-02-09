@@ -181,7 +181,9 @@ docker build -t <image_name> .
 ```
 
 - `docker build` tells Docker to build an image based on a Dockerfile.
-- `-t <image_name>` assigns a tag to the image. Substitute `<image_name>` with anything you want.
+- `-t <image_name>` assigns a tag to the image. To format your image name, type `<your username>/<name of image>:<tag/version>`
+  - For example, if you view my output below, my full command would be: `docker build -t dkfern/flask-web-app:0.0.1 .`
+  - As a tip (which I didn't do, but have since changed my docker image tag to be), a good convention is for your tag to be *'latest'*
 - `.` The dot (***"."***) tells docker to look in the current directory for the Dockerfile.
 
 This will create our docker image. Make sure it worked by running: `docker image ls`. You should get an output that looks similar to this:
@@ -190,6 +192,11 @@ REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
 dkfern/flask-web-app   0.0.1     830ddb928cd5   2 weeks ago   67MB
 ```
 *REMEMBER: If you get some sort of error related to the service/daemon not running, open Docker Desktop and it will start.*
+
+You should get an output in your terminal after running the `docker build` command that looks something like this:
+
+<img width="848" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/eb61d478-e125-42d2-ad9b-dc15beec5b7a">
+
 
 ### 2. Run the container 
 Now let's run our Docker image to give it a test!
@@ -205,6 +212,10 @@ Now let's run our Docker image to give it a test!
   docker run -d -p 8080:8080 <image_name>
   ```
 
+<img width="763" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/2635daee-aabe-4101-a308-ad7117570b6a">
+
+The output should look like a hash value, this is a unique value assigned to your image by Docker.
+
 Some things to note in this command:
 - Use your image name and tag rather than `<image_name>`. So in my case, the image name would be: ***"dkfern/flask-web-app:0.0.1"***
 - `docker run` is telling docker to run a Docker image as a container
@@ -213,10 +224,36 @@ Some things to note in this command:
 
 That should be it! Open your web browser and navigate to `localhost:8080` and you should see your running web application.
 
+### View your running containers:
+Run the command `docker ps`. This will show you all containers you have running (which should currently just be one container). 
+
+<img width="897" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/ec515a41-c950-4238-817e-00491b000a86">
+
+### Stop the container:
+Now let's stop the container from running, cause if we don't need a container to run, we should't have it run. See the value under ***CONATINER ID*** in the above image. That's the value I need to stop the container. 
+
+Run the command `docker stop <container id>`. Note, if you only have one container running, you only need to type in the first few characters in the CONTAINER ID value as shown below:
+
+<img width="530" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/51395b90-ef36-4239-88a4-d9e6302f1ef8">
+
+Now run `docker ps` again to confirm nothing is running.
+
+
 ### Congratulations!
 You just ran your first container image! Now let's push it to Docker Hub.
 
+# Push to Docker Hub
+Now that we have our container image and we know that it works, let's push it to our Docker Hub repository. Make sure you are signed in through Docker Desktop (signing in can be done in the terminal as well but we already did it before in the gui).
 
+Now run the command `docker push <full docker name and tag>`
+
+As shown below, make sure your full docker name and tag includes your username, container name, and tag like we set before when creating the container.
+
+<img width="672" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/d8eccffd-5b19-4eeb-a572-105393d81551">
+
+Now if you take a look online at Docker Hub, you should see your newly pushed container:
+
+<img width="941" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/03402dbe-d369-4c13-a93e-7f26ae5def24">
 
 
 
