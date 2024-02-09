@@ -1,6 +1,6 @@
 # Step 2: Containerize Your Application
 
-A container is a lightweight and portable software package that contains everything needed to run an application, including code, runtime, system tools, libraries, and settings. As the name would suggest, a container can be transported to any machine that has the container engine (Docker in our case), and ran without installation. Additionally, containers are isolated from the host environment so running a container inherently doesn't affect the computer it's being run on.
+A container is a lightweight and portable software package that contains everything needed to run an application, including code, runtime, system tools, libraries, and settings. As the name would suggest, a container can be transported to any machine that has the container engine (Docker in our case), and ran without installation. Additionally, containers are isolated from the host environment so running a container inherently doesn't affect the computer it's being run on. In the modern IT environment, containers are widely used in cyber infrastructure and having understanding and hands-on experience with them is hugely beneficial.
 
 ### Container vs Virtual Machine
 
@@ -250,6 +250,7 @@ Now run the command `docker push <full docker name and tag>`
 As shown below, make sure your full docker name and tag includes your username, container name, and tag like we set before when creating the container.
 
 <img width="672" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/d8eccffd-5b19-4eeb-a572-105393d81551">
+
 *note: I had previously pushed this container to Docker Hub so your output may look slightly different than mine*
 
 ### Check online
@@ -258,7 +259,16 @@ Now if you take a look online at Docker Hub, you should see your newly pushed co
 <img width="941" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/03402dbe-d369-4c13-a93e-7f26ae5def24">
 
 
+# Section Conclusion:
+Let's take a look back at what we did in this section:
+- **Learned about containerization and Docker**: We got some background on what containers are used for and why they are used in a modern IT environment, learned a bit about Docker, and learned some important terms.
+- **Set up our dependencies**: installed Docker and created a Docker Hub account that will host our Docker image to be used in the next section.
+- **Got hands on**: We created *requirements.txt*, *.dockerignore*, and our *Dockerfile* that will acted as a blueprint to our container image.
+- **Ran the commands**: From the terminal we explored some basic Docker commands, created our Docker image, ran it to test locally, and finally pushed it to our Docker Hub repository.
 
+Pat yourself on the back! You now have some hands on experience with containers and Docker!
+
+In our next section: [3_Terraform.md](https://github.com/dk-fern/flaskWebApp-with-docker/blob/main/Project%20Guide/3_Terraform.md) we'll be taking a look at another key concept: Infrastructure as Code using Terraform.
 
 
 
