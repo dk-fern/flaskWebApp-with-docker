@@ -250,7 +250,9 @@ Now run the command `docker push <full docker name and tag>`
 As shown below, make sure your full docker name and tag includes your username, container name, and tag like we set before when creating the container.
 
 <img width="672" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/d8eccffd-5b19-4eeb-a572-105393d81551">
+*note: I had previously pushed this container to Docker Hub so your output may look slightly different than mine*
 
+### Check online
 Now if you take a look online at Docker Hub, you should see your newly pushed container:
 
 <img width="941" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/03402dbe-d369-4c13-a93e-7f26ae5def24">
