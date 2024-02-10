@@ -67,7 +67,7 @@ It's simple, and continues to give more and more learning practice and hands-on 
 
 
 # Create your Terraform files
-Before we actually get hands-on-keyboard with this part, let's understand Terraform a bit. Again, before explaining myself, I'll link two resources for you:
+Before we actually get hands-on-keyboard with this part, let's understand Terraform a bit. Again, before explaining myself, I'll link two resources for you to read after this project for deeper learning:
 - [Terraform general documentation](https://developer.hashicorp.com/terraform/cli)
 - [Azure with Terraform- get started](https://developer.hashicorp.com/terraform/tutorials/azure-get-started)
 
