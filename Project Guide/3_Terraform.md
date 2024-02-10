@@ -29,7 +29,8 @@ Download the latest version of Terraform [HERE](https://developer.hashicorp.com/
 - Open *File Explorer* and under ***"This PC"*** select ***"Windows (C:)"*** to navigate to your root **"C:\"** drive. Create a new folder there called ***"Terraform"***.
 - Drag and drop *terraform.exe* into our new *Terraform* folder.
 - Navigate to your environmental variables. This can be done a number of ways, one of which being in your start menu, begin typing "environmental variables" and it should come up
-    <img width="261" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/8eb556f9-a7d9-4b3f-b958-ab4d4b7684f8">
+
+  <img width="261" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/8eb556f9-a7d9-4b3f-b958-ab4d4b7684f8">
 
 - Select *"Environment Variables"*, then under *"System variables"* fine the variables named ***"Path"***. Select it and click *"Edit"*
     <img width="304" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/7a963bcf-5eec-4e46-892d-be897457aa39">
@@ -66,4 +67,111 @@ It's simple, and continues to give more and more learning practice and hands-on 
 
 
 # Create your Terraform files
+Before we actually get hands-on-keyboard with this part, let's understand Terraform a bit. Again, before explaining myself, I'll link two resources for you:
+- [Terraform general documentation](https://developer.hashicorp.com/terraform/cli)
+- [Azure with Terraform- get started](https://developer.hashicorp.com/terraform/tutorials/azure-get-started)
 
+HashiCorp really does a great job with their documentation for Terraform, and after this project if Infrastructure as Code is something you enjoy, I would recommend you dive deeper into it because we are really only scratching the surface.
+
+## Terraform Layout and Structure
+I'll just attempt to scratch the surface of explaining Terraform in a way that feels beneficial to this project:
+
+### Folder structure
+You'll notice in our ***"flaskWebAppTerraform"*** folder we just have two files named *"main.tf"* and *"variables.tf"*, these are just standard naming conventions but anything inside of our root Terraform directory will be used by Terraform when the configuration is ran. For example, inside of the ***flaskWebAppTerraform*** folder we could have more folders for different purposes and for organizing more complex IaC projects. If we ran Terraform, it will look for any *".tf"* file in our root Terraform folder (***flaskWebAppTerraform*** in our case) and any sub folders and assume they are in the same project. More info on folder structure can be found in Terraform's documentation [HERE](https://developer.hashicorp.com/terraform/language/files).
+
+### Providers
+Terraform uses *"providers"*, to help make the program work. What providers are, are cloud-service specific plugins that are installed when we initially initialize Terraform (that will be explained shortly). When we run that initialization command to start our project, Terraform will download the Azure plugin (because we'll tell it to at the beginning of our *"main.tf"* file) which is what translates our Terraform files into API calls to Azure, thus creating the cloud infrastructure. Deeper explanation can be found in Terraform's documentation [HERE](https://developer.hashicorp.com/terraform/language/providers).
+
+### Declarative coding language
+Terraform uses a specific coding language called [HashiCorp Configuration Language](https://developer.hashicorp.com/terraform/language). This is a ***declarative*** coding language meaning, rather than using code to write the steps of how a computer should do something, you simply *declare* what you want the end product to be, and Terraform makes it happen. As a contrast, other languages like Python are called *procedural* coding languages as you have to write step-by-step what needs to happen to get your end result.
+
+### Terraform CLI
+Last one: Using Terraform from the command line consists of a few steps:
+- `terraform init`: This command will initialize Terraform for our project (as mentioned earlier). After we run this command Terraform will download the Azure module, and create some new things in our root folder (see below, after running `terraform init` there is more in our directory than just the two config files)
+      <img width="514" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/c21d4063-7c9c-41ba-b084-47247a2f7d4c">
+
+    These new files are both used to allow Terraform to run from here on, but also creates *"state"* files that keep track of the current state of our cloud infrastructure. From a security perspective, you don't want these newly created files to be public, so make sure if you upload this project to Github or anywhere else, don't include these.
+
+    Note: Though there may be times `terraform init` may be re-ran, it really only needs to be ran once per project.
+
+- `terraform fmt`: You may notice while looking at *"main.tf"* that it is very neat in the sense that the columns are aligned and formatted well. Thankfully you don't have to do this yourself. Running this command will automatically clean up your config files and make them pretty.
+
+- `terraform plan`: Running this command will tell you what's going to happen without making it happen. When we run it, TErraform will say what cloud resources are being created, modified, or destroyed, as well as provide any errors or problems with your config files. This command is helpful and I reccomend running it always before the next command to be sure you know what will happen in your cloud environment.
+
+- `terraform apply`: This is the command that will actually create the resources. If you run `terraform plan` first, you will get the same output when running `terraform apply`.
+
+- `terraform destroy`: Finally, as mentioned before, we always want to clean up our cloud resources when we don't want them anymore. Running `terraform destroy` will delete any resources in the config files.
+
+- Lastly, because using Terraform (and other IaC tools) relies on configs and state files to know what is true about your cloud environment, manually adjusting things inside of the Azure portal will break your Terraform *"state"* because there is no way for the state files to be updated. If you did something like removed a resource manually, then tried to update your Terraform configs and run them, you would get an error. If this happens to you, I recommend manually removing the full resource group (which in turn automatically removes the resources in it) and re-running Terraform.
+
+## Hands-On (finally)
+Now let's get hands-on with Terraform. In the project folder navigate to the ***"flaskWebAppTerraform"*** folder this is our root Terraform folder discussed earlier. Inside of that you should see two files
+- **main.tf**
+- **variables.tf**
+
+First, open the main file either by selecting it in the *"Explorer"* windows, or running `code main.tf`. I won't be explaining every line, but I'll explain a few:
+
+- Lines 1-12 are what tells Terraform to install the correct Azure provider.
+- You'll notice on lines 14, 19, and 32 is **"resource"** followed by some names in "quotes". Terraform uses things called *"resource blocks"* that are chunks of code *declaring* (remember Terraform uses a *declarative* coding language) what you want to be built.
+  Let's take a look at one of these resource blocks as an example:
+  ```hcl
+  resource "azurerm_service_plan" "service-plan" {
+      name                = var.app_service_plan_name
+      location            = var.resource_group_location
+      resource_group_name = var.resource_group_name
+    
+      os_type  = "Linux"
+      sku_name = "F1"
+    
+      depends_on = [
+        azurerm_resource_group.rg,
+      ]
+    }
+  ```
+
+    The first line declares what this block is:
+      - `resource` declares that this is a resource. Examples of other things that can be declared are `output` (as seen on line 56) or `variable` as seen in *"variables.tf"*
+      - `"azurerm_service_plan"` is a Terraform specific term that the Azure provider knows means that we want an Azure App Service plan
+      - `"service-plan"` is the name of this block inside of our config if we need to reference it later, and can be named whatever you want. Don't worry too much about this concept, but if you wanna read more about it, do so [HERE](https://developer.hashicorp.com/terraform/language).
+      - All other aspects of this resource block are called *"arguments"* that fall within the brackets (`{ }`) and define other qualities of our resource we want to create including what it should be named within Azure, the type of operating system, the size, etc. Because we are using a ***"variables.tf"*** file, many of these things are called `var.____`. This makes our config more dynamic and means we don't have to type the same thing over and over again.
+
+You won't have to adjust anything in ***"main.tf"***, but there is great documentation to use in future projects. If there is any sort of Azure resource you need, the documentation shows exactly what what needs to declared and what other resource blocks are needed. See the documentation for the Web Application [HERE](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app). Also see ***Examples folder*** on the [Github Page](https://github.com/hashicorp/terraform-provider-azurerm) for the Azure Terraform provider for some pre-created examples.
+
+> [!NOTE]
+> In the service plan, the sku_name refers to the underlying compute size that your web application will use. "F1" is a free tier size which is pretty weak, but because our web app is static (meaning it doesn't take or move any data), should be fine. It also means we don't have to pay!
+
+### NEXT: 
+Now let's open *variables.tf* by either selecting it in the Explorer window or running `code variables.tf`. Here is where you will be putting in your own information to make this Terraform config your own (I know this took forever, but it really is important to understand most of this stuff).
+
+In each variables block substitute the value in the `<___>` for your own thing, contained in "quotation" marks. You can name things whatever you want, but I would recommend them being somwhat descriptive (for example, naming the service plan something like: *flask_service_plan*). I've pre-defined the location to be *westus3* which can be kept for simplicity sake. 
+
+Additionally, the value you put for `<web app name>` needs to be globally unique and will ultimately be a part of our URL to access the app. You may get an error if your web app name is already in use.
+
+With everything in place, let's run our web app!
+
+# Running your web app
+Remember those few Terraform commands we listed before? Now we get to use them! Open your terminal, navigate to your Terraform folder (remember, use `cd <folder_name> to move to that folder in your terminal` and run these commands:
+
+1. `terraform init`: This will initialize Terraform for our project and will create a few new things in our Terraform folder
+2. `terraform fmt`: This formats our .tf files if needed. If you get an output, that means that file was formatted in some way. If you don't get an output that means everything is formatted correctly
+3. `terraform plan`: This may take a moment to run, but will show us what resources will be created. If any errors arise, you may need to troubleshoot at this stage.
+4. `terraform apply`: This will push our config files to the cloud and create our web application. You will be prompted if you want to continue at some point, type "yes", then Terraform will work to create your web app.
+
+<img width="414" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/66533d5f-ad29-44c3-8708-5e343d09bfbd">
+
+### Output
+You should see in your terminal after the ***apply*** finishes, there is a URL (see above image). This is the URL to your application! Navigate to it now (see note below about loading times) You can also view this in the Azure portal by:
+1. Navigate to [portal.azure.com](https://portal.azure.com) and log-in if needed.
+2. Select **"Resource groups"** (if it isn't present on the home screen, search for it in the search bar at the top of the page)
+3. Select your resource group
+4. Select your web application (the web app is the one with this symbol <img width="22" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/42a55fe7-8d1b-4946-8e34-f8317d0ca970"> and the *"type"* named **"App Service"**
+5. In the **"Overview"** page (it should be the page you automatically land on), look for ***"Default domain"***. This is your domain to navigate to.
+
+<img width="237" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/35d2c086-7e51-4848-b722-dc0c1c3babfb">
+
+### A note about load times:
+We are using a free tier sku with very low compute power behind it. Additionally by Terraform's own admission [HERE](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/examples/app-service/docker-basic/README.md), deploying a Docker container takes a while to load. I have found that selecting the URL and letting the page load until it errors-out, then re-loading and waiting a little bit more is enough for the page to get working. Overall I'd give it 5 minutes of patience before we are met with our web application: 
+
+<img width="1187" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/e6889ade-eb24-4331-a711-da956d93056c">
+
+Note the URL I am at meaning that this website is being hosted in Azure and not locally.
