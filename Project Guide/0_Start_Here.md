@@ -21,7 +21,7 @@ The things we are doing in this project are going to be publicly hosted online. 
 Depending on your experience level, some of this stuff may be frustrating and you may get stuck somewhere along the way. If that happens, I encourage you to keep moving forward and troubleshoot your problems online or use other tools like ChatGPT (not always 100% accurate but still super useful) to help. Your whole IT career you will have to use research to find the answers to your problems so I encourage you to do so in this project. Additionally, if you have means to reach out to me and ask questions, I'm always happy to help.
 
 ## Next steps
-Before we start anything, download the repository to your computer. It doesn't matter where that folder sits, but it is going to be your working project space. The non-git/simplest way to do that is to select the green **"Code"** button from the main repository page and choose **"Download Zip"**:
+Before we start anything, download the repository to your computer. It doesn't matter where that folder sits, but it is going to be your working project space. The non-git/simplest way to do that is to select the green **"Code"** button from the main repository page and choose **"Download Zip"**, then extract the files to a folder on your computer:
 
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/1c8cbe12-c777-4934-a0dd-4603ae394d6a)
 
