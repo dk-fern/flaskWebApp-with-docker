@@ -1,6 +1,6 @@
 # flaskWebApp-with-docker
 
-Throughout my time in IT I've found that often, when being introduced to new concepts, hands on guides often use meaningless examples for testing. For example, many beginner Docker guides often just have you run a default nginx server with no functionality, or the first Azure Web Application guides bring you to an empty landing page with no use. This project hopes to change that with the ability to get hands on with some key IT technolgies in a way that brings education, experience, and a tangible product you can finish the project with.
+Throughout my time in IT I've found that often, when being introduced to new concepts, hands on guides will use meaningless examples for testing. For example, many beginner Docker guides often just have you run a default nginx or apache web server with no functionality, or the first Azure Web Application guides bring you to an empty landing page with no use. This project hopes to change that with the ability to get hands on with some key IT technolgies in a way that brings education, experience, and a tangible product you can leave the project with.
 
 This is a fairly beginner-friendly project designed to practice and demonstrate:
 - Basic functionality in the Flask web application framework for Python
