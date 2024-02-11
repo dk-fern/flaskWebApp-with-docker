@@ -4,7 +4,7 @@ Infrastructure as Code (IaC) allows IT professionals to create cloud infrastruct
 In essence, rather than logging into an online portal and manually clicking to configure your cloud infrastructure, you can create configuration files using special coding languages, run them, and your cloud infrastructure will be created.
 
 ## Terraform
-[Terraform](https://www.terraform.io/) is an open source tool created by HashiCorp, which allows for the provisioning of infrastructure resources across various cloud providers and on-premises environments using declarative configuration files. [Terraform's documentation](https://developer.hashicorp.com/terraform?ajs_aid=0fd2f30a-4d91-4a28-b55f-82b4589a8031&product_intent=terraform) is great, well written, and really provides all you need for just about any project you can think of.
+[Terraform](https://www.terraform.io/) is an open source tool created by HashiCorp, which allows for the provisioning of infrastructure resources across various cloud providers and on-premises environments using declarative configuration files. [Terraform's documentation](https://developer.hashicorp.com/terraform?ajs_aid=0fd2f30a-4d91-4a28-b55f-82b4589a8031&product_intent=terraform) is great, well written, and really provides all you need for just about any project you can think of. We'll be talking more about Terraform in just a bit.
 
 ## Cloud Computing
 According to [Zippia](https://www.zippia.com/answers/what-percentage-of-companies-use-cloud-services/) as of 2022, 94% of businesses used the cloud in some way, and this number is only growing. Cloud providers allow the ability to quickly create IT infrastructure that is flexible and scalable to business needs. With that being said, understanding the cloud in some way is a must for IT professionals. If you haven't already, I encourage you to continue cloud learning. And if I had to suggest one resource, I used [Learn Azure in a Month of Lunches](https://info.microsoft.com/ww-landing-learn-azure-in-a-month-of-lunches.html) which is free and does a great job explaining concepts well and giving hands on experience in Azure.
@@ -12,7 +12,9 @@ According to [Zippia](https://www.zippia.com/answers/what-percentage-of-companie
 ## Azure
 Though IaC and Terraform can be used across several cloud providers, for this project we'll be using Microsoft's Azure. I personally find Azure to balance, ease of use and functionality, with a ton of features to create anything from personal projects to enterprise sized applications. As an added bonus, Azure will give you some free credit to use in the first month of creating an account, and give your new account some free services for a whole year!
 
-If you're new to Azure, I'll quickly explain what the structure of our web application will look like. Everything in Azure exists as a resource in a **"Resource Group"**. So a Linux virtual server is a resource, a virtual network is a resource, a public IP address is a resource, etc. And resources within a Resource Group can be connected together as needed or exist independently. For our purposes (as seen in the diagram below), we will be using Azure's Web Application PaaS (if you don't know much about what this means, see [HERE](https://www.ibm.com/topics/iaas-paas-saas) for more information) service. Because it's a *"Platform as a Service"*, the underlying infrastructure of what a web application needs is handled by Azure, we just have to provide the code/container needed for a web application. Nice and easy!
+If you're new to Azure, I'll quickly explain what the structure of our web application will look like. Everything in Azure exists as a resource in a **"Resource Group"**. So a Linux virtual server is a resource, a virtual network is a resource, a public IP address is a resource, etc. And resources within a Resource Group can be connected together as needed or exist independently. 
+
+For our purposes (as seen in the diagram below), we will be using Azure's Web Application PaaS (if you don't know much about what this means, see [HERE](https://www.ibm.com/topics/iaas-paas-saas) for more information) service. Because it's a *"Platform as a Service"*, the underlying infrastructure of what a web application needs is handled by Azure, we just have to provide the code/container needed for a web application. Nice and easy!
 
 Additionally, our web application will sit inside of an *"App service plan"* (something needed to run a web app that defines where our web app will live, computing power size, etc), and that app service plan will sit inside of a *"Resource Group"*. See the diagram below for a visualization.
 
@@ -24,8 +26,8 @@ Additionally, our web application will sit inside of an *"App service plan"* (so
 # Get set up:
 
 ## 1. Download Terraform
-Download the latest version of Terraform [HERE](https://developer.hashicorp.com/terraform/install?ajs_aid=0fd2f30a-4d91-4a28-b55f-82b4589a8031&product_intent=terraform). Rather than a program to install, Terraform exists as an executable. There are a couple of ways to do this, but here is what I've found to work well, and what others online suggest as well:
-- Open the folder than downloads to find *"terraform.exe"*. 
+Download the latest version of Terraform [HERE](https://developer.hashicorp.com/terraform/install?ajs_aid=0fd2f30a-4d91-4a28-b55f-82b4589a8031&product_intent=terraform). Rather than a program to install, Terraform exists as an executable. Now let's add the Terraform executable to our *Path* so it can be ran directly from the command line. There are a couple of ways to do this, but here is what I've found to work well, and what others online suggest as well:
+- Find *"terraform.exe"* in your Downloads folder, or wherever else you may have saved it. 
 - Open *File Explorer* and under ***"This PC"*** select ***"Windows (C:)"*** to navigate to your root **"C:\"** drive. Create a new folder there called ***"Terraform"***.
 - Drag and drop *terraform.exe* into our new *Terraform* folder.
 - Navigate to your environmental variables. This can be done a number of ways, one of which being in your start menu, begin typing "environmental variables" and it should come up
@@ -44,7 +46,8 @@ Download the latest version of Terraform [HERE](https://developer.hashicorp.com/
 
 
 ## 2. Create a free Azure account
-- Navigate to this link: [Azure Free Account](https://azure.microsoft.com/en-us/free)
+- Navigate to this link: [Azure Free Account](https://azure.microsoft.com/en-us/free), and select **"Start free"**
+    
     <img width="1198" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/be3cd69d-2215-4b0d-94d8-79d16e522b5e">
 
 - When signing up you will have to add a credit/debit card to your account, but you won't initially be charged for anything, and you will be given $200 free credit to use. Even after my free credit ran out, I still have never been charged for resources because Azure provides *"free tier"* resources that won't charge you.
@@ -52,7 +55,7 @@ Download the latest version of Terraform [HERE](https://developer.hashicorp.com/
 > [!NOTE]
 > A key component to cloud computing is being good at cleaning up resources that aren't in use. Deleting resource groups and resources you don't need anymore is good practice.
 
-## 3. Link your Terraform to your Azure subscription
+## 3. Link Terraform to your Azure subscription
 For this one, I am just going to link the [Terraform guide for setting up Azure with Terraform](https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build). Rather than writing the how-to myself, HashiCorp has done a great and clear job explaining the process and most of it can be copy/pasted for you.
 
 As a quick overview, in the tutorial you will:
@@ -61,7 +64,7 @@ As a quick overview, in the tutorial you will:
 
 **STOP AND COME BACK JUST BEFORE THE SECTION TITLED: *Write Configuration***
 
-It's simple, and continues to give more and more learning practice and hands-on experience.
+The guide simple, and continues to give more and more learning practice and hands-on experience.
 
 <img width="559" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/93fc71f5-2548-4534-8494-c92af7d142d2">
 
@@ -74,29 +77,30 @@ Before we actually get hands-on-keyboard with this part, let's understand Terraf
 HashiCorp really does a great job with their documentation for Terraform, and after this project if Infrastructure as Code is something you enjoy, I would recommend you dive deeper into it because we are really only scratching the surface.
 
 ## Terraform Layout and Structure
-I'll just attempt to scratch the surface of explaining Terraform in a way that feels beneficial to this project:
+I'll just attempt to begin explaining Terraform in a way that feels beneficial to this project:
 
 ### Folder structure
-You'll notice in our ***"flaskWebAppTerraform"*** folder we just have two files named *"main.tf"* and *"variables.tf"*, these are just standard naming conventions but anything inside of our root Terraform directory will be used by Terraform when the configuration is ran. For example, inside of the ***flaskWebAppTerraform*** folder we could have more folders for different purposes and for organizing more complex IaC projects. If we ran Terraform, it will look for any *".tf"* file in our root Terraform folder (***flaskWebAppTerraform*** in our case) and any sub folders and assume they are in the same project. More info on folder structure can be found in Terraform's documentation [HERE](https://developer.hashicorp.com/terraform/language/files).
+You'll notice in our ***"flaskWebAppTerraform"*** folder we just have two files named *"main.tf"* and *"variables.tf"*, these are just standard naming conventions but anything inside of our root Terraform directory will be used by Terraform when the configuration is ran. For example, inside of the ***flaskWebAppTerraform*** folder we could have more folders for different purposes and for organizing more complex IaC projects. When we run Terraform, it will look for any *".tf"* file in our root Terraform folder (***flaskWebAppTerraform*** in our case) and any sub folders and assume they are in the same project. More info on folder structure can be found in Terraform's documentation [HERE](https://developer.hashicorp.com/terraform/language/files).
 
 ### Providers
-Terraform uses *"providers"*, to help make the program work. What providers are, are cloud-service specific plugins that are installed when we initially initialize Terraform (that will be explained shortly). When we run that initialization command to start our project, Terraform will download the Azure plugin (because we'll tell it to at the beginning of our *"main.tf"* file) which is what translates our Terraform files into API calls to Azure, thus creating the cloud infrastructure. Deeper explanation can be found in Terraform's documentation [HERE](https://developer.hashicorp.com/terraform/language/providers).
+Terraform uses *"providers"*, to help make the program work. What providers are, are cloud-service specific plugins that are installed when we initially initialize Terraform (that will be explained shortly). When we run that initialization command to start our project, Terraform will download the Azure plugin (because we'll tell it to at the beginning of our *"main.tf"* file) which is what translates our Terraform files into API calls to Azure, thus creating the cloud infrastructure. If this feels confusing, you really don't need to understand it too much for this project, but deeper explanation can be found in Terraform's documentation [HERE](https://developer.hashicorp.com/terraform/language/providers).
 
 ### Declarative coding language
-Terraform uses a specific coding language called [HashiCorp Configuration Language](https://developer.hashicorp.com/terraform/language). This is a ***declarative*** coding language meaning, rather than using code to write the steps of how a computer should do something, you simply *declare* what you want the end product to be, and Terraform makes it happen. As a contrast, other languages like Python are called *procedural* coding languages as you have to write step-by-step what needs to happen to get your end result.
+Terraform uses a specific coding language called [HashiCorp Configuration Language](https://developer.hashicorp.com/terraform/language). This is a ***declarative*** coding language, meaning, rather than using code to write the steps of how a computer should do something, you simply *declare* what you want the end product to be, and Terraform makes it happen. As a contrast, other languages like Python are called *procedural* coding languages as you have to write step-by-step what needs to happen to get your end result.
 
 ### Terraform CLI
-Last one: Using Terraform from the command line consists of a few steps:
+Using Terraform from the command line consists of a few steps (don't run these quite yet, we'll do that soon):
 - `terraform init`: This command will initialize Terraform for our project (as mentioned earlier). After we run this command Terraform will download the Azure module, and create some new things in our root folder (see below, after running `terraform init` there is more in our directory than just the two config files)
-      <img width="514" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/c21d4063-7c9c-41ba-b084-47247a2f7d4c">
+
+  <img width="514" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/c21d4063-7c9c-41ba-b084-47247a2f7d4c">
 
     These new files are both used to allow Terraform to run from here on, but also creates *"state"* files that keep track of the current state of our cloud infrastructure. From a security perspective, you don't want these newly created files to be public, so make sure if you upload this project to Github or anywhere else, don't include these.
 
-    Note: Though there may be times `terraform init` may be re-ran, it really only needs to be ran once per project.
+    Note: Though there may be times `terraform init` may be re-ran, it generally only needs to be ran once per project.
 
 - `terraform fmt`: You may notice while looking at *"main.tf"* that it is very neat in the sense that the columns are aligned and formatted well. Thankfully you don't have to do this yourself. Running this command will automatically clean up your config files and make them pretty.
 
-- `terraform plan`: Running this command will tell you what's going to happen without making it happen. When we run it, TErraform will say what cloud resources are being created, modified, or destroyed, as well as provide any errors or problems with your config files. This command is helpful and I reccomend running it always before the next command to be sure you know what will happen in your cloud environment.
+- `terraform plan`: Running this command will tell you what's going to happen without making it happen. When we run it, Terraform will say what cloud resources are being created, modified, or destroyed, as well as provide any errors or problems with your config files. This command is helpful and I reccomend running it always before the next command to be sure you know what will happen in your cloud environment.
 
 - `terraform apply`: This is the command that will actually create the resources. If you run `terraform plan` first, you will get the same output when running `terraform apply`.
 
