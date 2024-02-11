@@ -31,6 +31,10 @@ Download and install [Python](https://www.python.org/downloads/) if not already 
 - *Optional but encouraged* - Download a few extensions for vs code:
    - With VS Code open, select the "Extensions" button on the left: ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/2b4d49b1-fd74-440c-a8ac-6cfb458054ef)
    - I'll suggest more extensions to download in the next two docs, but for now I prefer using: "Python" and "Prettier - Code formatter" as they both make coding in Python and HTML a little more convenient
+   - <img width="277" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/9a19d516-3a15-4095-8ead-12763b99cd68">
+   - <img width="277" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/a1c9c5f0-add1-4a93-8a9b-3a4206d649f0">
+
+
   
 ### Download necessary Python libraries
 Python libraries are pre-built code that you can use to enhance your own code. This can be helpful because to builda complex application, you won't have to write every single bit of code yourself. To run our web app, we'll need to download two python libraries, Flask and Waitress (the web server used to run the application). In the upper nav bar in VS Code, select ***"Terminal"** > ***"New Terminal"***. This will open a terminal in the lower half of your screen that can be adjusted up or down.
