@@ -223,7 +223,7 @@ Finally, our resume page is to showcase your job experience. The HTML on this pa
   </ul>
 ```
   
-   - The Job title is between the `<h5> </h5>` tags, the description is the line below that betwen the `<p> </p>` tags, and the responsibilities are each listed in `<li> </li>` tags.
+   - The Job title is between the `<h5> </h5>` tags, the description is the line below that betwen the `<p> </p>` tags, and the responsibilities are each listed uas bullet points using `<li> </li>` tags.
    - *HINT: Keep each listed item on it's own row like I have it in this code to make it easy to organize
 
 If you're feeling overwhelmed with the HTML or getting lost, remember to utilize ChatGPT or a similar AI tool. Putting in your HTML and asking it to clean up your code for you or explain certain lines can be super helpful.
@@ -232,11 +232,11 @@ If you're feeling overwhelmed with the HTML or getting lost, remember to utilize
 
 With everything saved, let's re-run the web app and see our finished product. I'm sure you did this multiple times throughout testing and development, but in your terminal (make sure your terminal path is back in the same directory as `app.py`) run the command `python app.py`. Open up your web browser, navigate to ***"localhost:8080"*** and take a look.
 
-I'm crossing my fingers for you that everything works and looks good, and congratulations! You've successfully created your first web application and I'm sure it looks great!
+I'm crossing my fingers for you that everything works, and congratulations! You've successfully created your first web application and I'm sure it looks great!
 
 ## Next steps: 
 Like I said at the beginning: as an IT professional, developing a web application isn't generally a necessary part of the job. But this step was necessary in our project to get to using Docker and Terraform to deploy the application. While you could have done the same thing with a sample web app that just showed a generic website with no functionality, you instead took the chance to learn something new and actually interesting/useful. Having your own resume website is great to show off to employers and really stands out! 
 
-Now let's move to our next step, getting hands-on with Docker. Click here to move to the [Docker Guide](https://github.com/dk-fern/flaskWebApp-with-docker/blob/main/Project%20Guide/2_Docker.md)
+Now let's move to our next step, getting hands-on with Docker. Click here to move to part two, containerizing our web application with Docker: [2. Docker](https://github.com/dk-fern/flaskWebApp-with-docker/blob/main/Project%20Guide/2_Docker.md)
 
 
