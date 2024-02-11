@@ -26,4 +26,4 @@ Before we start anything, download the repository to your computer. It doesn't m
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/1c8cbe12-c777-4934-a0dd-4603ae394d6a)
 
 
-Our first step is to set up our web application. Follow the guide for that here: [**1. Flask Guide**](https://github.com/dk-fern/flaskWebApp-with-docker/blob/main/Project%20Guide/2_Flask.md)
+Our first step is to set up our web application. Follow the guide for that here: [**1. Flask Guide**](https://github.com/dk-fern/flaskWebApp-with-docker/blob/main/Project%20Guide/1_Flask.md)
