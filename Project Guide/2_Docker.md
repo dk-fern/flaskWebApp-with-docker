@@ -2,6 +2,8 @@
 
 A container is a lightweight and portable software package that contains everything needed to run an application, including code, runtime, system tools, libraries, and settings. As the name would suggest, a container can be transported to any machine that has the container engine (Docker in our case), and ran without installation. Additionally, containers are isolated from the host environment so running a container inherently doesn't affect the computer it's being run on. In the modern IT environment, containers are widely used in cyber infrastructure and having understanding and hands-on experience with them is hugely beneficial.
 
+**To summarize** in case this is a newer topic for you: as long as someone has Docker installed on their computer, they can download your *soon-to-be* containerized web application and run it without having to install anything else. Pretty cool, huh?
+
 ### Container vs Virtual Machine
 
 One benefit of containers is that they don't need a ton of resources. As seen in the diagram below, while a VM needs a hypervisor, and its own operating system to run on top of the host OS, a container uses the host kernel/OS with a container engine to run individual container images making it more lightweight, but still isolated from the host environment.
@@ -17,11 +19,15 @@ One benefit of containers is that they don't need a ton of resources. As seen in
 
 While other containerization tools exist, Docker is by far one of the most popular. It has a huge community, a lot of useful documentation, and great capabilities to do anything you may need with containers. See the [Docker website](https://www.docker.com/) for more info. For this project, we'll be using Docker to create a fairly simple Dockerfile, which is used for creating a container image, that can then be uploaded to our own Docker Hub repository.
 
+Here's some quick steps to try and show how this is going to go:
+
+**(Our Web Application)** ---using a---> **(Dockerfile)** ---creates a---> **(Docker Image)** ---that Docker uses to run a---> **(Docker container)**
+
 ### Let's quickly review and define some terms:
 - **Virtualization**: The act of virtually replicating all aspects of a device, allowing multiple virtual instances to run simultaneously on a single physical machine, thereby maximizing resource utilization and facilitating efficient management of computing resources.
 - **Container**: A software package that contains everything needed to run an application included in it.
 - **Docker**: One of the most popular tools used to create containers. 
-- **Container Image**: A lightweight, standalone, executable package that includes everything needed to run a piece of software, including the application code, runtime, libraries, environment variables, and dependencies. It serves as a blueprint for creating containerized applications. Container images are typically built from a Dockerfile and can be shared and distributed across different environments.
+- **Container Image**: A lightweight, standalone, executable package that includes everything needed to run a piece of software, including the application code, runtime, libraries, environment variables, and dependencies. It serves as a blueprint for creating a ***Docker container***. Container images are typically built from a Dockerfile and can be shared and distributed across different environments.
 - **Dockerfile**: A text-based script that contains instructions for building a Docker image. It specifies the base image to use, the commands to run during the image build process, environment variables, and other configuration settings required to create a containerized application. Dockerfiles enable developers to automate the process of building consistent and reproducible container images, promoting best practices for containerization.
 - **Docker Hub**: An online repository for Docker images. With Docker we can pull any public Docker container to use for ourselves, and we can push containers to our own repository to be used later or by others.
 
@@ -64,10 +70,10 @@ waitress
 Then just make sure you save it, and you're good to go for this file. 
 
 > [!NOTE]
-> **"requirements.txt"** is a standard naming convention of this file, so Docker when building the container image, will specifically look for a file name **"requirements.txt"** to find the names of add-ons to install.*
+> **"requirements.txt"** is a standard naming convention of this file, so Docker when building the container image, will specifically look for a file name **"requirements.txt"** to find the names of add-ons to install.
 
 ### .dockerignore
-The .dockerignore file is used to tell Docker, *"Do not include these things in the Docker image"*. This can be done for a number of reasons, but in our case, we don't want anything related to git, terraform, or these project instructions in our image, as they have no use for the container. In your terminal run `code .dockerignore` (note the dot "." at the beginning of the filename), copy and paste the contents below:
+The .dockerignore file is used to tell Docker, *"Do not include these things in the Docker image"*. This can be done for a number of reasons, but in our case, we don't want anything related to git, terraform, or these project instructions in our image, as they have no use in the container. In your terminal run `code .dockerignore` (note the dot "." at the beginning of the filename), copy and paste the contents below:
 
 ```
 __pycache__
@@ -171,13 +177,16 @@ CMD ["python", "./app.py"]
 
 
 # Building the Docker Image
-Although we have Docker Desktop (the gui application) installed, we're primarily going to be working in the command line for this. I like doing this because although Docker Desktop is really convenient when running multiple Docker images, and the whole Docker experience easy, I feel like using the command line helps you understand what's actually going on more than the gui version. Although using Docker Desktop to run images won't be covered in this project, I encourage you to take a look at it when we run our container in a bit and just see what is happening.
+Although we have Docker Desktop (the gui application) installed, we're primarily going to be working in the command line for this. I like doing this because although Docker Desktop is really convenient when running multiple Docker images, and helps make the whole Docker experience easy, I feel like using the command line helps you understand what's actually going on more than the gui version. Although using Docker Desktop to run images won't be covered in this project, I encourage you to take a look at it when we run our container in a bit and just see what is happening.
 
 ## A note about Docker image names before we begin:
-Docker images have a standard naming format: "username"/"image name":"tag"
+Docker images have a standard naming format: `<username>/<image name>:<tag>`
 - Your **"username"** is the name set when you created your Docker Hub account. In my example below, my username is *"dkfern*"
 - The **"image name"** can be whatever you want but generally suggested to stay short and descriptive to what the container is. In my example below, my image name is *"flask-web-app"*
-- The **"tag"** is given to containers as version control. If you don't want to worry about changing versions if you update this in the future, just use the tag: *"latest"*, which is a standard naming convention. When using the *"latest"* naming convention, if you push an updated version of your container image to Docker Hub with that same *"latest"* tag already existing there, it will be overwritten with the new container image.
+- The **"tag"** is given to containers as version control. If you don't want to worry about changing versions if you update this in the future, just use the tag: *"latest"*, which is a standard naming convention. When using the *"latest"* naming convention, if you push an updated version of your container image to Docker Hub with that same *"latest"* tag already existing there, it will be overwritten with the new container image. In the example below, my tag is *"0.0.1"*
+
+<img width="216" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/63be83e7-54dd-4320-8be9-19d4feae64d4">
+
 
 ## Steps:
 Like always, make sure we have our project folder and terminal windows open, and ensure that in the terminal you are in the same directory as the Dockerfile. 
@@ -197,16 +206,17 @@ docker build -t <image_name> .
   - As a tip (which I didn't do, but have since changed my docker image tag to be), a good convention is for your tag to be *'latest'*
 - `.` The dot (***"."***) tells docker to look in the current directory for the Dockerfile.
 
-This will create our docker image. Make sure it worked by running: `docker image ls`. You should get an output that looks similar to this:
-```
-REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
-dkfern/flask-web-app   0.0.1     830ddb928cd5   2 weeks ago   67MB
-```
 *REMEMBER: If you get some sort of error related to the service/daemon not running, open Docker Desktop and it should start.*
 
 You should get an output in your terminal after running the `docker build` command that looks something like this:
 
 <img width="848" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/eb61d478-e125-42d2-ad9b-dc15beec5b7a">
+
+Now validate the Docker Image was created. View your Docker images by running: `docker image ls`. You should get an output that looks similar to this:
+```
+REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
+dkfern/flask-web-app   0.0.1     830ddb928cd5   2 weeks ago   67MB
+```
 
 
 ### 2. Run the container 
@@ -228,7 +238,7 @@ Now let's run our Docker image to give it a test!
 The output should look like a hash value, this is a unique value assigned to your image by Docker.
 
 **Some things to note in this command:**
-- Use your image name and tag rather than `<image_name>`. So in my case, the image name would be: ***"dkfern/flask-web-app:0.0.1"***
+- Use your image name and tag rather than `<image_name>`. So in my case, the image name would be: ***"dkfern/flask-web-app:0.0.1"*** (*I know I'm beating a dead horse with this, it just really is important*).
 - `docker run` is telling docker to run a Docker image as a container
 - `-d` is uses to run in *"detatched"* mode, meaning you can have continued use of your terminal. Not using "-d" wouldn't allow you to continue typing comands and you would have to press ***"ctrl+c"*** to exit
 - `-p 8080:8080` The "-p" flag specifies ports followed by the ports to direct to/from. The port number left of the colon specifies the host port, meaning which port your computer will use to connect to the container. The port number right of the colon specifies the container port, meaning which port the container will use to connect to your computer. These numbers don't have to be the same, but remember that in our web application we exposed **port 8080**. This means that our container port (the one on the right) does have to be 8080. When we go to access our web application in one second, the port number we specify as our host port (the left one) will have to be defined in our web browser.
@@ -244,7 +254,7 @@ Run the command `docker ps`. This will show you all containers you have running 
 <img width="897" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/ec515a41-c950-4238-817e-00491b000a86">
 
 ### Stop the container:
-Now let's stop the container from running, cause if we don't need a container to run, we should't have it run. See the value under ***CONTAINER ID*** in the above image? That's the value needed to stop the container. 
+Now let's stop the container from running, cause if we don't need a container to run, we should't have it run. See the value under ***CONTAINER ID*** in the above image? That's the value needed to stop the container. In my example above the Container ID is *"ad44fa480459"*.
 
 Run the command `docker stop <container id>`. Note, if you only have one container running, you only need to type in the first few characters in the CONTAINER ID value as shown below:
 
