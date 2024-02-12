@@ -39,7 +39,7 @@ Download the latest version of Terraform [HERE](https://developer.hashicorp.com/
 
     <img width="434" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/baad7eea-72f9-419d-9093-6cd3f91dbad2">
 
-- Click ***"New"*** and add `C:\Terraform`.
+- Click ***"New"*** and add `C:\Terraform` to your ***"Path"*** variable.
 - Hit *"OK"* to everything and close out the Environmental Variables window.
 - Test that it worked: Open a terminal in VS Code (*Remember: **Terminal** > **New Terminal***) and type: `terraform --version`. If you get a version number and not an error message, then congrats! You've finished this step.
     <img width="634" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/3cb900aa-4f7c-485d-8d21-da86012d0614">
