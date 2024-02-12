@@ -37,7 +37,8 @@ Download the latest version of Terraform [HERE](https://developer.hashicorp.com/
 - Select *"Environment Variables"*, then under *"System variables"* fine the variables named ***"Path"***. Select it and click *"Edit"*
     <img width="304" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/7a963bcf-5eec-4e46-892d-be897457aa39">
 
-    <img width="434" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/baad7eea-72f9-419d-9093-6cd3f91dbad2">
+    ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/f8b5e399-af35-42ee-9f8f-6df630e40143)
+
 
 - Click ***"New"*** and add `C:\Terraform` to your ***"Path"*** variable.
 - Hit *"OK"* to everything and close out the Environmental Variables window.
