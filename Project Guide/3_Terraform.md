@@ -56,7 +56,9 @@ Download the latest version of Terraform [HERE](https://developer.hashicorp.com/
 > A key component to cloud computing is being good at cleaning up resources that aren't in use. Deleting resource groups and resources you don't need anymore is good practice.
 
 ## 3. Link Terraform to your Azure subscription
-We will need to now created a [*"Service Principal"*](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) within our Azure account that gives Terraform the permissions needed to interact with our Azure account. We'll be doing this from the command line using the Azure powershell library. For this one, I am just going to link the [Terraform guide for setting up Azure with Terraform](https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build). Rather than writing the how-to myself, HashiCorp has done a great and clear job explaining the process from downloading the Azure powershell library, to all the commands needed to set this up, and most of it can be copy/pasted for you.
+We will need to now created a [*"Service Principal"*](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser#service-principal-object) within our Azure account that gives Terraform the permissions needed to interact with our Azure account. We'll be doing this from the command line using the Azure powershell library. 
+
+For this one, I am just going to link the [Terraform guide for setting up Azure with Terraform](https://developer.hashicorp.com/terraform/tutorials/azure-get-started/azure-build). Rather than writing the how-to myself, HashiCorp has done a great and clear job explaining the process from downloading the Azure powershell library, to all the commands needed to set this up, and most of it can be copy/pasted for you.
 
 As a quick overview, in the tutorial you will:
 - Install the Azure CLI tool
@@ -176,7 +178,7 @@ variable "docker_image_name" {
 
 In each variable block substitute the value in the `<___>` for your own value, contained in "quotation" marks. You can name things whatever you want, but I would recommend them being somwhat descriptive (for example, naming the service plan something like: *"flask_service_plan"*). I've pre-defined the location to be *westus3* which can be kept for simplicity sake. 
 
-***Example of service plan variable block:***
+***Example of a completed service plan variable block:***
 ```terraform
 variable "app_service_plan_name" {
   default = "flask_app_service_plan"
@@ -184,7 +186,7 @@ variable "app_service_plan_name" {
 ```
 
 
-Additionally, the value you put for `<web app name>` needs to be globally unique and will ultimately be a part of our URL to access the app. You may get an error if your web app name is already in use.
+Additionally, the value you put for `<web app name>` needs to be globally unique and will ultimately be a part of our URL to access the app. You may get an error if your web app name is already in use. I'll also note (for the sake of security) that in the name I chose for my web application- ***dfern1978***, the ***1978*** part is not relevant to me at all, it's just numbers chosen to make my web app globally unique.
 
 With everything in place, let's run our web app!
 
@@ -209,8 +211,11 @@ You should see in your terminal after the ***apply*** finishes, there is a URL (
 <img width="237" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/35d2c086-7e51-4848-b722-dc0c1c3babfb">
 
 ### A note about load times:
-We are using a free tier sku with very low compute power behind it. Additionally by Terraform's own admission [HERE](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/examples/app-service/docker-basic/README.md), deploying a Docker container takes a while to load. I have found that selecting the URL and letting the page load until it errors-out, then re-loading and waiting a little bit more is enough for the page to get working. Overall I'd give it 5 minutes of patience before we are met with our web application: 
+We are using a free tier sku with very low compute power behind it. Additionally by Terraform's own admission [HERE](https://github.com/hashicorp/terraform-provider-azurerm/blob/main/examples/app-service/docker-basic/README.md), deploying a Docker container to a web application takes a while to load. I have found that selecting the URL and letting the page load until it errors-out, then re-loading and waiting a little bit more is enough for the page to get working. Overall I'd give it a few minutes of patience before we are met with our web application: 
 
 <img width="1187" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/e6889ade-eb24-4331-a711-da956d93056c">
 
-Note the URL I am at meaning that this website is being hosted in Azure and not locally.
+Note the URL I am at in the above screenshort meaning that this website is being hosted in Azure and not locally.
+
+## Great Job!
+If you made it to this point, you have successfully deployed your web application to the cloud using Terraform, and you have come to the end of our project. Take a look at [4_Next_steps](https://github.com/dk-fern/flaskWebApp-with-docker/blob/main/Project%20Guide/4_Next_Steps.md) for a project conclusion and some resources to continue learning about these topics.
