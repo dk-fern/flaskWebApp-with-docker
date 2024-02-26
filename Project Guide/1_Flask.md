@@ -8,7 +8,7 @@ First we are going to create our web application. To be perfectly honest, this i
 ## Structure Explanation:
 In our home [**repository page**](https://github.com/dk-fern/flaskWebApp-with-docker) we will find the files for our web application:
 - [**The Website Directory**](https://github.com/dk-fern/flaskWebApp-with-docker/tree/main/Website) -- This holds the contents to our web application including all the HTML, Python code, and images used.
-- **app.py** -- This is the code that launches the application. Naming this code 'app.py' is a common convention used in Flask
+- **app.py** -- This is the code that launches the application. Naming this code 'app.py' is a common convention used in Flask.
 
 <img width="761" alt="image" src="https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/78923723-80fb-491d-ad26-1fd592681c55">
 
@@ -46,12 +46,16 @@ Python libraries are pre-built code that you can use to enhance your own code. T
 
 - ***Explanation of commands:***
   - "pip" is the package manager used by python
-  - The commands you ran are installing both the Flask and waitress python libraries, both of which are needed to run the web app
+  - The commands you ran are installing both the Flask and waitress python libraries, both of which are needed to run the web app.
 
 ## 2. Test the application
 Let's quickly run the web app as it is just to get a feel of what's going on.
 
-You can navigate to the project folder in your terminal (if needed at any point, `cd <folder_name>` is the command to change directories in your terminal. If you need to go back a directory, use `cd ..`), or an easier way can be to open the project folder directly: In the icons on the left, select "Explorer" (the top one) and choose "Open Folder". Then choose your project folder. This will open a new window with your project loaded and ready to go. You should notice in your terminal that your path is already set to your project folder.
+1. You can navigate to the project folder in your terminal two ways:
+   - `cd <folder_name>` is the command to change directories in your terminal. (if you need to go back a directory, use `cd ..`)
+   - In the icons on the left, select "Explorer" (the top one) and choose "Open Folder".
+4. Then choose your project folder.
+5. This will open a new window with your project loaded and ready to go. You should notice in your terminal that your path is already set to your project folder.
 
 ![image](https://github.com/dk-fern/flaskWebApp-with-docker/assets/110493897/bd3caee9-4f53-4550-9430-8471b8986435)
 
